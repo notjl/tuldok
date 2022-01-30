@@ -5,5 +5,18 @@ else
     vim.opt.sh = 'sh'
 end
 
-require "configs.options"
-require "configs.keymaps"
+-- Use protected call to except faulty configs
+local options_ok, _ = pcall(require, "configs.options")
+local keymaps_ok, _ = pcall(require, "configs.keymaps")
+
+if not options_ok then
+    vim.notify("Options ❌")
+else
+    vim.notify("Options ⭕")
+end
+
+if not keymaps_ok then
+    vim.notify("Keymaps ❌")
+else
+    vim.notify("Keymaps ⭕")
+end
