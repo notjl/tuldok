@@ -1,1 +1,1 @@
-require 'tako'
+require 'configs'

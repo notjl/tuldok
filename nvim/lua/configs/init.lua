@@ -5,4 +5,4 @@ else
     vim.opt.sh = 'sh'
 end
 
-require "tako.options"
+require "configs.options"
