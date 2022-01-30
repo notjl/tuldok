@@ -24,7 +24,7 @@ local opts = {
     eb = false,                                     -- ring the bell for error messages
     swf = false,                                    -- whether to use a swapfile for a buffer
     bk = false,                                     -- keep backup file after overwriting a file
-    udir = "~/.nvim/undodir",                       -- where to store undo files
+    udir = os.getenv("HOME") .. "/undodir",                             -- where to store undo files
     udf = true,                                     -- save undo information in a file
     scl = "yes",                                    -- when to display the sign column
     cot = {"menuone", "noselect"},                  -- options for [Insert] completion
@@ -37,13 +37,13 @@ local opts = {
     spr = true,                                     -- new window is put right of the current one
     tgc = true,                                     -- terminal true color support
     ut = 300,                                       -- after this many milliseconds flush swap file
-    tm = 100,                                       -- time out time in milliseconds
+    tm = 1000,                                       -- time out time in milliseconds
     title = true,                                   -- Vim set the title of the window
     wb = false,                                     -- make a backup before overwriting a file
+    wim = "longest,list",                           -- mode for 'wildchar' command-line expansion
 }
 
 local to_append = {
-    wim = "longest,list",                           -- mode for 'wildchar' command-line expansion
     isk = "-",                                      -- characters included in keywords
 }
 
