@@ -6,3 +6,4 @@ else
 end
 
 require "configs.options"
+require "configs.keymaps"
