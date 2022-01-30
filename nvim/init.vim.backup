@@ -1,0 +1,152 @@
+
+call plug#begin("~/.nvim/plugged")
+
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'github/copilot.vim'
+    Plug 'Yggdroot/indentLine'
+    " Plug 'ajh17/spacegray.vim'
+    " Plug 'Shatur/neovim-ayu'
+    " Plug 'cocopon/iceberg.vim'
+    Plug 'notjl/iceberg.vim'
+    Plug 'mbbill/undotree'
+    " Plug 'nvim-lua/plenary.nvim'
+    " Plug 'nvim-telescope/telescope.nvim'
+    " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    " Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'preservim/nerdtree'
+    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    " Plug 'ryanoasis/vim-devicons'
+    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'jmcantrell/vim-virtualenv'
+    " Plug 'airblade/vim-gitgutter'
+
+call plug#end()
+
+if has('win32') || has('win64')
+    let &shell='cmd.exe'
+endif
+
+" == General Configuration ==
+
+set nocompatible
+set nohlsearch
+set incsearch
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+syntax on
+set encoding=utf-8
+
+set nu
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter   * if &nu &&
+                \ mode() != "i" | set rnu | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave     * if &nu
+                \ | set nornu | endif
+augroup END
+
+set ignorecase
+set wildmode=longest,list,full
+set nowrap
+set clipboard=unnamedplus
+set lcs=eol:↵,tab:<->,extends:>,precedes:<
+set list
+set guicursor=a:block
+set cursorline
+set noerrorbells
+set scrolloff=10
+set noswapfile
+set nobackup
+set undodir=~/.nvim/undodir
+set undofile
+set signcolumn=yes
+set colorcolumn=80
+
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+
+let mapleader=" "
+let g:indentLine_enabled=0
+let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_leadingSpaceEnabled=1
+let g:undotree_SetFocusWhenToggle=1
+"let g:NERDTreeGitStatusUseNerdFonts=1
+"let g:NERDTreeGitStatusConcealBrackets=1
+let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#tabline#formatter='unique_tail'
+let g:gitgutter_git_executable='C:\Program Files\Git\bin\git.exe'
+
+" == Remaps ==
+" Normal Mode
+nnoremap S :%s//g<Left><Left>
+nnoremap <Leader>ww <cmd>w<CR>
+
+" nnoremap <F5> :UndotreeToggle<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
+" nnoremap <Leader>bp :bp<CR>
+nnoremap <silent> <Leader>+ :vert res +5<CR>
+nnoremap <silent> <Leader>- :vert res -5<CR>
+
+" nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+" nnoremap <Leader>fg <cmd>lua require('telescope.builtin').live_grep()<CR>
+" nnoremap <Leader>fb <cmd>lua require('telescope.builtin').buffers()<CR>
+" nnoremap <Leader>fh <cmd>lua require('telescope.builtin').help_tags()<CR>
+
+nnoremap <Leader>n :NERDTreeFocus<CR>
+nnoremap <Leader>nn :NERDTree<CR>
+nnoremap <Leader>nc :NERDTreeClose<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+
+imap jj <Esc>
+
+" Shortcut Split Navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+autocmd BufEnter NERDTree * :LeadingSpaceDisable
+
+" Automatically deletes all trailing whitespace on write
+autocmd BufWritePre * %s/\s\+$//e
+
+" Start NERDTree and put the cursor back in the other window.
+" autocmd VimEnter * NERDTree | wincmd p
+" Start NERDTree. if a file is specified, move the cursor to its windows
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p |
+            \ endif
+" Start NERDTree when vim starts with a directory argument
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
+            \ !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p |
+            \ enew | execute 'cd '.argv()[0] | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
+            \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') &&
+            \ b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~
+            \ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# |
+            \ execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" set cursorcolumn
+
+" colorscheme spacegray
+" let g:spacegray_underline_search=1
+" let g:spacegray_use_italics = 1
+
+colo iceberg
+
+" AirlineTheme iceberg
