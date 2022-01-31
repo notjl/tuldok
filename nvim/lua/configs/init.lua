@@ -10,6 +10,7 @@ local options_ok, _ = pcall(require, "configs.options")
 local keymaps_ok, _ = pcall(require, "configs.keymaps")
 local autocmd_ok, _ = pcall(require, "configs.autocmd")
 local plugins_ok, _ = pcall(require, "configs.plugins")
+local colo_ok, _ = pcall(require, "configs.colorscheme")
 
 if not options_ok then
     vim.notify("Options ❌")
@@ -33,4 +34,10 @@ if not plugins_ok then
     vim.notify("Plugins ❌")
 else
     vim.notify("Plugins ⭕")
+end
+
+if not colo_ok then
+    vim.notify("Colorscheme ❌")
+else
+    vim.notify("Colorscheme ⭕")
 end
