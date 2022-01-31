@@ -45,6 +45,7 @@ return packer.startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'LunarVim/onedarker.nvim'
+    use 'Shatur/neovim-ayu'
 
     if BOOTSTRAPPER then
         require('packer').sync()
