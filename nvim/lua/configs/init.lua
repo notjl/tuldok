@@ -12,6 +12,7 @@ local keymaps_ok, _ = pcall(require, "configs.keymaps")
 local autocmd_ok, _ = pcall(require, "configs.autocmd")
 local plugins_ok, _ = pcall(require, "configs.plugins")
 local colo_ok, _ = pcall(require, "configs.colorscheme")
+local rpc_ok, _ = pcall(require, "configs.presence")
 notif_ok, vim.notify = pcall(require, "notify")
 
 if not notif_ok then
@@ -62,5 +63,11 @@ else
         vim.notify("Colorscheme failed", 'error', {title='Colorscheme.lua'})
     else
         vim.notify("Colorscheme loaded", 'info', {title='Colorscheme.lua'})
+    end
+
+    if not rpc_ok then
+        vim.notify("Presence failed", 'error', {title='Presence.lua'})
+    else
+        vim.notify("Presence loaded", 'info', {title='Presence.lua'})
     end
 end
