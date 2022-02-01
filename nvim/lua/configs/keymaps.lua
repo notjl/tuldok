@@ -13,7 +13,10 @@ local keybinding = {
         -- replace all shortcut --
         ["<S-s>"] = ":%s//g<LEFT><LEFT>",
         -- remap saving --
-        ["<LEADER>ww"] = ":w<CR>",
+        ["<LEADER>w"] = ":w<CR>",
+        -- remap quitting --
+        ["<LEADER>q"] = ":q<CR>",
+        ["<LEADER>Q"] = ":qa<CR>",
         -- split navigation --
         ["<C-h>"] = "<C-w>h",
         ["<C-j>"] = "<C-w>j",
