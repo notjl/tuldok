@@ -1,6 +1,7 @@
 local M = {}
 local cmd = vim.api.nvim_command
 
+-- Based on norcalli/nvim_utils -- 
 function M.group(definitions)
     for name, definition in pairs(definitions) do
         cmd('augroup '..name)

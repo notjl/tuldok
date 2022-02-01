@@ -23,6 +23,9 @@ if not packer_ok then
 end
 
 packer.init{
+    -- Move to lua directory so impatient.nvim can cache it
+    compile_path = fn.stdpath('config')..('/lua/packer_compiled.lua'),
+    
     display = {
         open_fn= function()
             return require('packer.util').float {border = 'rounded'}
@@ -32,12 +35,22 @@ packer.init{
 
 return packer.startup(function(use)
 
+    -- Based plugins
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
+    use 'lewis6991/impatient.nvim'
+
+    -- Theme
+    use 'folke/tokyonight.nvim'
     -- use 'LunarVim/onedarker.nvim'
     -- use 'Shatur/neovim-ayu'
-    use 'folke/tokyonight.nvim'
+
+    -- Discord Rich Presence
+    use 'andweeb/presence.nvim'
+
+    -- Notify errors in initialization to lessen startuptime
+    use 'rcarriga/nvim-notify'
 
     if BOOTSTRAPPER then
         require('packer').sync()
