@@ -43,6 +43,7 @@ return packer.startup(function(use)
 
     -- Theme
     use 'folke/tokyonight.nvim'
+    use 'marko-cerovac/material.nvim'
     -- use 'LunarVim/onedarker.nvim'
     -- use 'Shatur/neovim-ayu'
 
