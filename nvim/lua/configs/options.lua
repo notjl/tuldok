@@ -40,11 +40,14 @@ local opts = {
     tm = 1000,                                              -- time out time in milliseconds
     title = true,                                           -- Vim set the title of the window
     wb = false,                                             -- make a backup before overwriting a file
-    wim = "longest,list",                                   -- mode for 'wildchar' command-line expansion
+    wim = "longest,list,full",                              -- mode for 'wildchar' command-line expansion
 }
+
+opt.shm:append('c')
 
 local to_append = {
     isk = "-",                                              -- characters included in keywords
+    shm = "c",
 }
 
 -- set options that needs append using an iterator

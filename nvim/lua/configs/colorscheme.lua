@@ -1,4 +1,4 @@
-local colorscheme = 'material'
+local colorscheme = 'tokyonight'
 local cmd = vim.api.nvim_command
 local g = vim.g
 

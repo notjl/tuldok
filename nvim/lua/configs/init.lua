@@ -13,6 +13,7 @@ local autocmd_ok, _ = pcall(require, "configs.autocmd")
 local plugins_ok, _ = pcall(require, "configs.plugins")
 local colo_ok, _ = pcall(require, "configs.colorscheme")
 local rpc_ok, _ = pcall(require, "configs.presence")
+local cmp_ok, _ = pcall(require, "configs.cmp")
 notif_ok, vim.notify = pcall(require, "notify")
 
 if not notif_ok then
@@ -69,5 +70,11 @@ else
         vim.notify("Presence failed", 'error', {title='Presence.lua',render='minimal'})
     else
         vim.notify("Presence loaded", 'info', {title='Presence.lua',render='minimal'})
+    end
+
+    if not rpc_ok then
+        vim.notify("CMP failed", 'error', {title='CMP.lua',render='minimal'})
+    else
+        vim.notify("CMP loaded", 'info', {title='CMP.lua',render='minimal'})
     end
 end

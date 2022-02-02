@@ -46,6 +46,17 @@ return packer.startup(function(use)
         }
     }
 
+    -- CMP plugins
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'saadparwaiz1/cmp_luasnip'
+
+    -- Snippet plugins
+    use 'L3MON4D3/LuaSnip'
+    use 'rafamadriz/friendly-snippets'
+
     -- Theme
     use 'folke/tokyonight.nvim'
     use 'marko-cerovac/material.nvim'
