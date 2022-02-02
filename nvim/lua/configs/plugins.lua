@@ -1,5 +1,5 @@
 local fn = vim.fn
-local au = require "configs.utils"
+local cmd = vim.api.nvim_command
 
 -- automatically install packer
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
@@ -25,7 +25,6 @@ end
 packer.init{
     -- Move to lua directory so impatient.nvim can cache it
     compile_path = fn.stdpath('config')..('/lua/packer_compiled.lua'),
-    
     display = {
         open_fn= function()
             return require('packer.util').float {border = 'rounded'}
@@ -52,10 +51,15 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'saadparwaiz1/cmp_luasnip'
+    use 'hrsh7th/cmp-nvim-lsp'
 
     -- Snippet plugins
     use 'L3MON4D3/LuaSnip'
     use 'rafamadriz/friendly-snippets'
+
+    -- LSP plugins
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
 
     -- Theme
     use 'folke/tokyonight.nvim'
