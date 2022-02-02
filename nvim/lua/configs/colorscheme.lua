@@ -16,10 +16,9 @@ else
     end
 
     -- Material
-    g.material_style = 'deep ocean'
     if colorscheme == 'material' then
         g.material_style = 'deep ocean'
-        require 'material'.setup({
+        require('material').setup({
             contrast = {
                 sidebars = true,
                 floating_windows = true,
@@ -32,12 +31,11 @@ else
                 keywords=true
             },
             high_visibility = {
-                darker = true
+                -- darker = true
             },
         })
     end
 
     -- re-require
     cmd('colo ' .. colorscheme)
-    vim.notify('Colorscheme loaded!', 'info', {render='minimal'})
 end
