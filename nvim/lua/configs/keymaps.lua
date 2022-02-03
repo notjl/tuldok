@@ -32,6 +32,9 @@ local keybinding = {
         -- buffer navigation --
         ["<S-l>"] = ":bn<CR>",
         ["<S-h>"] = ":bp<CR>",
+        -- telescope shortcuts --
+        ["<LEADER>f"] = ":Telescope find_files<CR>",
+        ["<C-t>"] = ":Telescope live_grep<CR>",
     },
     -- [INSERT] --
     ["i"] =  {

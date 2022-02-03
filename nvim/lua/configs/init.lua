@@ -6,7 +6,7 @@ else
 end
 
 -- Use protected call to except faulty configs
-local impatient_ok, _ = pcall(require, 'impatient')
+local impatient_ok, _ = pcall(require, 'configs.impatient')
 local options_ok, _ = pcall(require, "configs.options")
 local keymaps_ok, _ = pcall(require, "configs.keymaps")
 local autocmd_ok, _ = pcall(require, "configs.autocmd")
@@ -15,6 +15,7 @@ local colo_ok, _ = pcall(require, "configs.colorscheme")
 local rpc_ok, _ = pcall(require, "configs.presence")
 local cmp_ok, _ = pcall(require, "configs.cmp")
 local lsp_ok, _ = pcall(require, "configs.lsp")
+local tele_ok, _ = pcall(require, "configs.telescope")
 notif_ok, vim.notify = pcall(require, "notify")
 
 if not notif_ok then
@@ -83,5 +84,11 @@ else
         vim.notify("LSP failed", 'error', {title='LSP.lua',render='minimal'})
     else
         vim.notify("LSP loaded", 'info', {title='LSP.lua',render='minimal'})
+    end
+
+    if not tele_ok then
+        vim.notify("Telescope failed", 'error', {title='Telescope.lua',render='minimal'})
+    else
+        vim.notify("Telescope loaded", 'info', {title='Telescope.lua',render='minimal'})
     end
 end
