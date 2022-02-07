@@ -17,7 +17,7 @@ local opts = {
     cb = "unnamedplus",                                     -- use the clipboard as the unnamed register
     lcs = "eol:↴,tab:<->,extends:>,precedes:<,lead:·",      -- characters for displaying in list mode (eol: ↵)
     list = true,                                            -- <Tab> and <EOL>
-    gcr = "a:block",                                        -- GUI: settings for cursor shape and blinking
+    -- gcr = "a:block",                                     -- GUI: settings for cursor shape and blinking
     cul = true,                                             -- hightlight the screen line of the cursor
     cc = "80",                                              -- columns to highlight
     so = 10,                                                -- minimum number of lines above and below cursor
@@ -40,7 +40,7 @@ local opts = {
     tm = 1000,                                              -- time out time in milliseconds
     title = true,                                           -- Vim set the title of the window
     wb = false,                                             -- make a backup before overwriting a file
-    wim = "longest,list,full",                                   -- mode for 'wildchar' command-line expansion
+    wim = "longest,list,full",                              -- mode for 'wildchar' command-line expansion
 }
 
 opt.shm:append('c')
