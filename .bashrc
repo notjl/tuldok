@@ -9,9 +9,9 @@ alias top='bpytop'
 #alias python='python3'
 alias bashtherc='source ~/.bashrc'
 alias venvact='. .venv/Scripts/activate'
-#alias oldvim='\vim'
-#alias vim='nvim'
-#alias vi='nvim'
+alias oldvim='\vim'
+alias vim='nvim'
+alias vi='nvim'
 alias speedtest='speedtest.exe'
 alias ani-view='npx node-anime-viewer'
 
@@ -170,7 +170,7 @@ function set_prompt {
 	# Set the terminal title and prompt.
 	PS1="\[\033]0;\W\007\]"; # working directory base name
 	PS1+="\[${bold}\]\n"; # newline
-	PS1+="\[${userStyle}\]\u"; # username
+	PS1+="╭─\[${userStyle}\]\u"; # username
 	PS1+="\[${white}\]@";
 	PS1+="\[${hostStyle}\]\h"; # host
 	PS1+="\[${white}\]:";
@@ -178,8 +178,8 @@ function set_prompt {
 	PS1+=" $(prompt_git)"; # Git repository details
 	PS1+="\n";
 	timer_stop
-	PS1+='\[${gray}\][${timer_show}] '
-	PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+	PS1+='\[${bold}\]\[${white}\]╰─\[${gray}\][${timer_show}] '
+	PS1+="\[${white}\]λ \[${reset}\]"; # `$` (and reset color)
 	export PS1;
 }
 
