@@ -74,6 +74,9 @@ return packer.startup(function(use)
     }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
+    -- Git-related plugins
+    use 'lewis6991/gitsigns.nvim'
+
     -- Theme
     -- use 'folke/tokyonight.nvim'
     use 'marko-cerovac/material.nvim'

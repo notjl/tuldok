@@ -27,7 +27,8 @@ local oks = {
     ['Telescope'] = pcall(require, 'configs.telescope'),
     ['Treesitter'] = pcall(require, 'configs.treesitter'),
     ['Autopairs'] = pcall(require, 'configs.autopairs'),
-    ['Comments'] = pcall(require, 'configs.comments')
+    ['Comments'] = pcall(require, 'configs.comments'),
+    ['Git Signs'] = pcall(require, 'configs.gitsigns'),
 }
 
 -- Iterate through tables and if status is not ok, notify user
