@@ -44,6 +44,7 @@ return packer.startup(function(use)
         }
     }
     use 'windwp/nvim-autopairs'
+    use 'numToStr/Comment.nvim'
 
     -- CMP plugins
     use 'hrsh7th/nvim-cmp'
@@ -71,6 +72,7 @@ return packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
     }
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     -- Theme
     -- use 'folke/tokyonight.nvim'
