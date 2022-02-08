@@ -18,7 +18,6 @@ end
 
 local packer_ok, packer = pcall(require, 'packer')
 if not packer_ok then
-    print "Packer ❌"
     return
 end
 
@@ -66,8 +65,14 @@ return packer.startup(function(use)
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-media-files.nvim'
 
+    -- Treesitter plugins
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+    }
+
     -- Theme
-    use 'folke/tokyonight.nvim'
+    -- use 'folke/tokyonight.nvim'
     use 'marko-cerovac/material.nvim'
     -- use 'LunarVim/onedarker.nvim'
     -- use 'Shatur/neovim-ayu'
