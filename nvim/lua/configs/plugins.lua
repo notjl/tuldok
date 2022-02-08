@@ -43,6 +43,7 @@ return packer.startup(function(use)
             compile_path = fn.stdpath 'config' .. 'lua/packer_compiled.lua'
         }
     }
+    use 'windwp/nvim-autopairs'
 
     -- CMP plugins
     use 'hrsh7th/nvim-cmp'
