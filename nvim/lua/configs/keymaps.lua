@@ -15,8 +15,9 @@ local keybinding = {
         -- remap saving --
         ["<LEADER>w"] = ":w<CR>",
         -- remap quitting --
-        ["<LEADER>q"] = ":q<CR>",
-        ["<LEADER>Q"] = ":qa<CR>",
+        ["<LEADER>q"] = ":Bdelete<CR>",
+        ["<LEADER>Q"] = ":q<CR>",
+        ["<LEADER>qa"] = ":qa<CR>",
         -- split navigation --
         ["<C-h>"] = "<C-w>h",
         ["<C-j>"] = "<C-w>j",

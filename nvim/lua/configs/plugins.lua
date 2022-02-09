@@ -89,6 +89,10 @@ return packer.startup(function(use)
             'kyazdani42/nvim-web-devicons',
         },
     }
+    
+    -- Bufferline plugins
+    use 'akinsho/bufferline.nvim'
+    use 'moll/vim-bbye'
 
     -- Theme
     -- use 'folke/tokyonight.nvim'

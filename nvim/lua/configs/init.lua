@@ -30,6 +30,7 @@ local oks = {
     ['Comments'] = pcall(require, 'configs.comments'),
     ['Git Signs'] = pcall(require, 'configs.gitsigns'),
     ['NVim Tree'] = pcall(require, 'configs.nvim-tree'),
+    ['Bufferline'] = pcall(require, 'configs.bufferline')
 }
 
 -- Iterate through tables and if status is not ok, notify user
