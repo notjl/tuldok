@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 local opts = {
     hls = false,                                            -- highlight matches with last search pattern

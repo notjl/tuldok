@@ -64,7 +64,12 @@ return packer.startup(function(use)
     use 'williamboman/nvim-lsp-installer'
 
     -- Telescope plugins
-    use 'nvim-telescope/telescope.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+        },
+    }
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Treesitter plugins
@@ -76,6 +81,14 @@ return packer.startup(function(use)
 
     -- Git-related plugins
     use 'lewis6991/gitsigns.nvim'
+
+    -- NVim-Tree plugins
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+        },
+    }
 
     -- Theme
     -- use 'folke/tokyonight.nvim'

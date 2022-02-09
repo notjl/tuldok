@@ -29,6 +29,7 @@ local oks = {
     ['Autopairs'] = pcall(require, 'configs.autopairs'),
     ['Comments'] = pcall(require, 'configs.comments'),
     ['Git Signs'] = pcall(require, 'configs.gitsigns'),
+    ['NVim Tree'] = pcall(require, 'configs.nvim-tree'),
 }
 
 -- Iterate through tables and if status is not ok, notify user

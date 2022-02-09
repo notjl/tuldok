@@ -23,7 +23,8 @@ local keybinding = {
         ["<C-k>"] = "<C-w>k",
         ["<C-l>"] = "<C-w>l",
         -- open explorer --
-        ["<LEADER>e"] = ":Lex 30<CR>",
+        -- ["<LEADER>e"] = ":Lex 30<CR>",
+        ["<LEADER>e"] = ":NvimTreeToggle<CR>",
         -- resize splits with arrow --
         ["<C-Up>"] = ":res +5<CR>",
         ["<C-Down>"] = ":res -5<CR>",

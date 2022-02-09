@@ -4,7 +4,7 @@ if not ok and not install_ok then
     return
 end
 
-require 'nvim-treesitter.install'.compilers = {"clang"}
+require 'nvim-treesitter.install'.compilers = {"gcc"}
 configs.setup{
     ensure_installed = 'maintained',
     sync_install = false,
