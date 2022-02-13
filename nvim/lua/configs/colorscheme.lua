@@ -11,5 +11,6 @@ require('material').setup({
         functions = true,
         keywords = true,
     },
+    lualine_style = 'stealth'
 })
 vim.api.nvim_command('colo material')

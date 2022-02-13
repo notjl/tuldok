@@ -31,6 +31,7 @@ local oks = {
     ['NVim Tree'] = pcall(require, 'configs.nvim-tree'),
     ['Bufferline'] = pcall(require, 'configs.bufferline'),
     ['Trouble'] = pcall(require, 'configs.trouble'),
+    ['Lualine'] = pcall(require, 'configs.lualine'),
     ['Keymaps'] = pcall(require, 'configs.keymaps'),
 }
 

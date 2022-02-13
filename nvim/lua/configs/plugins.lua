@@ -91,10 +91,12 @@ return packer.startup(function(use)
             'kyazdani42/nvim-web-devicons',
         },
     }
-    
     -- Bufferline plugins
     use 'akinsho/bufferline.nvim'
     use 'moll/vim-bbye'
+
+    -- Lualine plugins
+    use 'nvim-lualine/lualine.nvim'
 
     -- Theme
     -- use 'folke/tokyonight.nvim'
