@@ -62,6 +62,7 @@ return packer.startup(function(use)
     -- LSP plugins
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+    use 'folke/trouble.nvim'
 
     -- Telescope plugins
     use {

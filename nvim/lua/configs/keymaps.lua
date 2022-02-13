@@ -17,7 +17,7 @@ local keybinding = {
         -- remap quitting --
         ["<LEADER>q"] = ":Bdelete<CR>",
         ["<LEADER>Q"] = ":q<CR>",
-        ["<LEADER>qa"] = ":qa<CR>",
+        ["<LEADER>Qa"] = ":qa<CR>",
         -- split navigation --
         ["<C-h>"] = "<C-w>h",
         ["<C-j>"] = "<C-w>j",
@@ -37,6 +37,10 @@ local keybinding = {
         -- telescope shortcuts --
         ["<LEADER>f"] = ":Telescope find_files<CR>",
         ["<C-t>"] = ":Telescope live_grep<CR>",
+        -- trouble shortcuts --
+        ["<LEADER>xx"] = ":TroubleToggle<CR>",
+        ["<LEADER>xw"] = ":TroubleToggle<CR>",
+        ["<LEADER>xd"] = ":TroubleToggle<CR>",
     },
     -- [INSERT] --
     ["i"] =  {

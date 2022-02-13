@@ -17,7 +17,6 @@ local oks = {
     ['Impatient'] = pcall(require, 'configs.impatient'),
     ['Compiled'] = pcall(require, 'packer_compiled'),
     ['Options'] = pcall(require, 'configs.options'),
-    ['Keymaps'] = pcall(require, 'configs.keymaps'),
     ['AutoCMD'] = pcall(require, 'configs.autocmd'),
     ['Plugins'] = pcall(require, 'configs.plugins'),
     ['Colorscheme'] = pcall(require, 'configs.colorscheme'),
@@ -30,7 +29,9 @@ local oks = {
     ['Comments'] = pcall(require, 'configs.comments'),
     ['Git Signs'] = pcall(require, 'configs.gitsigns'),
     ['NVim Tree'] = pcall(require, 'configs.nvim-tree'),
-    ['Bufferline'] = pcall(require, 'configs.bufferline')
+    ['Bufferline'] = pcall(require, 'configs.bufferline'),
+    ['Trouble'] = pcall(require, 'configs.trouble'),
+    ['Keymaps'] = pcall(require, 'configs.keymaps'),
 }
 
 -- Iterate through tables and if status is not ok, notify user
