@@ -45,6 +45,7 @@ return packer.startup(function(use)
     }
     use 'windwp/nvim-autopairs'
     use 'numToStr/Comment.nvim'
+    use 'blackCauldron7/surround.nvim'
 
     -- CMP plugins
     use 'hrsh7th/nvim-cmp'
