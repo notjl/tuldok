@@ -41,6 +41,8 @@ local keybinding = {
         ["<LEADER>xx"] = ":TroubleToggle<CR>",
         ["<LEADER>xw"] = ":TroubleToggle<CR>",
         ["<LEADER>xd"] = ":TroubleToggle<CR>",
+        -- format shortcut --
+        ['<LEADER>F'] = ':Format<CR>'
     },
     -- [INSERT] --
     ["i"] =  {
