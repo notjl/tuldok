@@ -98,6 +98,9 @@ return packer.startup(function(use)
     -- Lualine plugins
     use 'nvim-lualine/lualine.nvim'
 
+    -- Toggleterm
+    use 'akinsho/toggleterm.nvim'
+
     -- Theme
     -- use 'folke/tokyonight.nvim'
     use 'marko-cerovac/material.nvim'

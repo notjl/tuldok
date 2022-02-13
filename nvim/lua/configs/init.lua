@@ -32,6 +32,7 @@ local oks = {
     ['Bufferline'] = pcall(require, 'configs.bufferline'),
     ['Trouble'] = pcall(require, 'configs.trouble'),
     ['Lualine'] = pcall(require, 'configs.lualine'),
+    ['Toggleterm'] = pcall(require, 'configs.toggleterm'),
     ['Keymaps'] = pcall(require, 'configs.keymaps'),
 }
 
