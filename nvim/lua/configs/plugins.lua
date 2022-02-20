@@ -45,7 +45,7 @@ return packer.startup(function(use)
     }
     use 'windwp/nvim-autopairs'
     use 'numToStr/Comment.nvim'
-    use 'blackCauldron7/surround.nvim'
+    -- use 'blackCauldron7/surround.nvim'
 
     -- CMP plugins
     use 'hrsh7th/nvim-cmp'
@@ -101,6 +101,9 @@ return packer.startup(function(use)
 
     -- Toggleterm
     use 'akinsho/toggleterm.nvim'
+
+    -- Vimwiki
+    use 'vimwiki/vimwiki'
 
     -- Theme
     -- use 'folke/tokyonight.nvim'
