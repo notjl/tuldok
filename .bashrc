@@ -12,8 +12,13 @@ alias venvact='. .venv/Scripts/activate'
 alias oldvim='\vim'
 alias vim='nvim'
 alias vi='nvim'
+alias v='nvim'
 alias speedtest='speedtest.exe'
 alias ani-view='npx node-anime-viewer'
+
+wiki(){
+    v ~/vimwiki/index.md
+}
 
 mkcdir(){
     mkdir -p -- "$1" &&
