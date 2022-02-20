@@ -41,6 +41,7 @@ local opts = {
     title = true,                                           -- Vim set the title of the window
     wb = false,                                             -- make a backup before overwriting a file
     wim = "longest,list,full",                              -- mode for 'wildchar' command-line expansion
+    cocu = "nc",                                            -- conceal cursor for normal and command
 }
 
 opt.shm:append('c')

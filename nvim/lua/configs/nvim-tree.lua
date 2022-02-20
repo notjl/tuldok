@@ -34,8 +34,7 @@ if not config_status_ok then
   return
 end
 
--- Deprecated
--- local tree_cb = nvim_tree_config.nvim_tree_callback
+local tree_action = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
   disable_netrw = true,

@@ -103,7 +103,28 @@ return packer.startup(function(use)
     use 'akinsho/toggleterm.nvim'
 
     -- Vimwiki
-    use 'vimwiki/vimwiki'
+    use {
+        'vimwiki/vimwiki',
+        config = function()
+            vim.g.vimwiki_global_ext = 0
+            vim.g.vimwiki_list = {
+                {
+                    path_html = '~/vimwiki_html/',
+                    links_space_char = '_',
+                    syntax = 'markdown',
+                    ext = '.md',
+                    auto_generate_links = 1,
+                    -- h1_headers = 1,
+                    -- h1_cb_checked = 1,
+                    -- list_margin = 0,
+                }
+            }
+            vim.g.vimwiki_hl_headers = 1
+            vim.g.vimwiki_hl_cb_checked = 1
+            vim.g.vimwiki_key_mappings = {mouse = 1}
+
+        end
+    }
 
     -- Theme
     -- use 'folke/tokyonight.nvim'
