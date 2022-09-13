@@ -178,7 +178,7 @@ function set_prompt {
 	PS1+="╭─\[${userStyle}\]\u"; # username
 	PS1+="\[${white}\]@";
 	PS1+="\[${hostStyle}\]\h"; # host
-	PS1+="\[${white}\] at ";
+	PS1+="\[${white}\] in ";
 	PS1+="\[${gray}\]\W\[${PYTHON_VIRTUALENV}\]"; # working directory full path
 	PS1+=" $(prompt_git)"; # Git repository details
 	PS1+="\n";
