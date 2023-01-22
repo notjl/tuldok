@@ -4,13 +4,10 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Replace the '>' symbol in the prompt with 'λ'
-# [character] # The name of the module we are configuring is 'character'
-# success_symbol = '[λ](bold green)' # The 'success_symbol' segment is being set to 'λ' with the color bold green'
-
 # Format using powerline style
 format = """
-[░▒▓](#4db2d6)\
+╭─\
+[](#4db2d6)\
 $username\
 [](fg:#4db2d6 bg:#5e98d2)\
 $directory\
@@ -32,14 +29,22 @@ $rust\
 [](fg:#985996 bg:#9e3b62)\
 $os\
 [](fg:#9e3b62)\
+$status\
 $fill\
 [](fg:#7f7abd)\
 $time\
 [](fg:#4db2d6 bg:#7f7abd)\
 $cmd_duration\
 $battery\
-\n$character\
+\n╰─ﬦ 
 """
+
+# right_format = """
+# $character
+# """
+
+[fill]
+symbol = " "
 
 [username]
 style_user = "bg:#4db2d6 fg:#0D0D0D bold"
@@ -186,11 +191,20 @@ Ubuntu = " "
 Unknown = " "
 Windows = " "
 
+[status]
+disabled = false
+pipestatus = false
+symbol = " [[](fg:#ff6961)  [](fg:#ff6961)](fg:#ffffff bg:#ff6961)"
+success_symbol = " [[](fg:#77dd77)  [](fg:#77dd77)](fg:#ffffff bg:#77dd77)"
+not_executable_symbol =  " [[](fg:#c23b22)  [](fg:#c23b22)](fg:#ffffff bg:#c23b22)"
+not_found_symbol = " [[](fg:#fdfd96) 󱗣 [](fg:#fdfd96)](fg:#ffffff bg:#fdfd96)"
+format = "[$symbol]($style)"
+
 [cmd_duration]
 style = "bg:#4db2d6 fg:#0d0d0d"
 min_time = 0
 show_milliseconds = true
-format = "[ 󱎫 $duration ]($style)"
+format = "[  $duration ]($style)"
 
 [time]
 style = "bg:#7f7abd fg:#0d0d0d"
