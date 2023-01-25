@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=1000
 SAVEHIST=5000
 setopt notify
@@ -68,4 +68,4 @@ alias vi='nvim'
 alias v='nvim'
 
 # Octopus banner every terminal init
-echo "$(cat $HOME/tako_banner)" | lolcat
+echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
