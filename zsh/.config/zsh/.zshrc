@@ -68,4 +68,6 @@ alias vi='nvim'
 alias v='nvim'
 
 # Octopus banner every terminal init
-echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
+# echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
+echo 
+fastfetch

@@ -29,3 +29,9 @@ export GOPATH="$XDG_DATA_HOME"/go
 
 # Change CUDA location
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
+# Create convenient variables
+export TAKO_DOTFILES=$HOME/Repositories/tuldok
+
+# Change Starship.rs config file location
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
