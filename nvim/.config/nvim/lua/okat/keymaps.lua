@@ -9,6 +9,7 @@ vim.g.maplocalleader = " "
 -- create table for keybindings
 -- [MODE] {LHS} {RHS} <OPTIONS>
 local keybindings = {
+
     -- [NORMAL] --
     ["n"] = {
         -- replace "all" shortcut --
@@ -16,7 +17,68 @@ local keybindings = {
 
         -- remap saving --
         ["<LEADER>w"] = ":w<CR>",
+
+        -- remap quitting --
+        ["<LEADER>q"] = ":Bdelete<CR>",
+        ["<LEADER>Q"] = ":q<CR>",
+        ["<LEADER>Qa"] = ":qa<CR>",
+
+        -- split navigation --
+        ["<C-h>"] = "<C-w>h",
+        ["<C-j>"] = "<C-w>j",
+        ["<C-k>"] = "<C-w>k",
+        ["<C-l>"] = "<C-w>l",
+
+        -- open explorer --
+        ["<LEADER>e"] = ":Lex 30<CR>",
+
+        -- resize splits with arrow --
+        ["<C-Up>"] = ":res +5<CR>",
+        ["<C-Down>"] = ":res -5<CR>",
+        ["<C-Left>"] = ":vert res -5<CR>",
+        ["<C-Right>"] = ":vert res +5<CR>",
+
+        -- buffer navigation --
+        ["<S-l>"] = ":bn<CR>",
+        ["<S-h>"] = ":bp<CR>",
+
+        -- telescope shortcuts --
+        ["<LEADER>f"] = ":Telescope find_files<CR>",
+        ["<C-t>"] = ":Telescope live_grep<CR>",
+
+        -- trouble shortcuts --
+        ["<LEADER>xx"] = ":TroubleToggle<CR>",
+        ["<LEADER>xw"] = ":TroubleToggle<CR>",
+        ["<LEADER>xd"] = "TroubleToggle<CR>",
+
+        -- format shortcut --
+        ["<LEADER>F"] = ":Format<CR>",
     },
+
+    -- [INSERT] --
+    ["i"] = {
+        -- exit insert mode --
+        ["jj"] = "<ESC>",
+    },
+
+    -- [VISUAL] --
+    ["v"] = {
+        -- stay in indent mode -- 
+        ["<"] = "<gv",
+        [">"] = ">gv",
+
+        -- move text up and down --
+        ["<A-k>"] = ":m .-2<CR>==",
+        ["<A-j>"] = ":m .+1<CR>==",
+    },
+
+    -- [VISUAL BLOCK] --
+    ["x"] = {
+        -- move text up and down --
+        ["<A-j>"] = ":m '>+1<CR>gv-gv",
+        ["<A-j>"] = ":m '<-2<CR>gv-gv",
+    },
+
 }
 
 -- iterate through the keybindings
