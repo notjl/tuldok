@@ -3,5 +3,5 @@ Powerline is configured to fit to my liking and can change at any time, colour p
 which provides colour palettes from just one colour hex code. In this case, it uses tako's hex code colour.
 
 ### References
-[Pastel Powerline Preset](https://starship.rs/presets/pastel-powerline.html)
-[Tokyo Night Preset](https://starship.rs/presets/tokyo-night.html)
+- [Pastel Powerline Preset](https://starship.rs/presets/pastel-powerline.html)
+- [Tokyo Night Preset](https://starship.rs/presets/tokyo-night.html)
