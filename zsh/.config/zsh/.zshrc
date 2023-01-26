@@ -58,8 +58,9 @@ bindkey -v '^?' backward-delete-char
 eval "$(starship init zsh)"
 
 
-# Display image in the terminal
+# Kitty aliases
 alias icat="kitty +kitten icat"
+alias d="kitty +kitten diff"
 
 # Alias neovim to old vim
 alias oldvim='\vim'
