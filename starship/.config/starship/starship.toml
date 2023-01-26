@@ -54,7 +54,7 @@ disabled = false
 
 [directory]
 style = "bg:#5e98d2 fg:#0f0f0f"
-truncation_length = 3
+truncation_length = 2
 truncation_symbol = ".../"
 home_symbol = "󰜥 "
 format = "[ $path ]($style)"
