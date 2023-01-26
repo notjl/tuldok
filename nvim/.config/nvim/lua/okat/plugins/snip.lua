@@ -1,3 +1,5 @@
+-- Guided by https://github.com/LazyVim/LazyVim
+
 return {
     "L3MON4D3/LuaSnip",
     dependencies = {

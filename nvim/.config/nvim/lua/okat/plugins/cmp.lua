@@ -1,3 +1,4 @@
+-- Guided by https://github.com/LazyVim/LazyVim
 return {
     -- CMP plugins --
     "hrsh7th/nvim-cmp",
