@@ -1,5 +1,6 @@
 return {
     "andweeb/presence.nvim",
+    event = "BufReadPre",
     config = function()
         require("presence"):setup({
             -- General options --

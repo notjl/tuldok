@@ -9,6 +9,8 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
     },
 
     opts = function()
@@ -24,7 +26,7 @@ return {
 
         local check_backspace = function()
             local col = vim.fn.col "." - 1
-            return col == 0 or vim.fn.getline".":sub(col, col):match"%s"
+            return col == 0 or vim.fn.getline ".":sub(col, col):match "%s"
         end
 
         local kind_icons = {
@@ -66,9 +68,9 @@ return {
             mapping = {
                 ["<C-k>"] = cmp.mapping.select_prev_item(),
                 ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), {"i", "c"}),
-                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), {"i", "c"}),
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<C-y>"] = cmp.config.disable, -- Specify "cmp.config.disable" if you want to remove the default "<C-y>" mapping
                 ["<C-e>"] = cmp.mapping {
                     i = cmp.mapping.abort(),
@@ -90,8 +92,8 @@ return {
                         fallback()
                     end
                 end, {
-                "i",
-                "s"
+                    "i",
+                    "s"
                 }),
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
@@ -102,19 +104,21 @@ return {
                         fallback()
                     end
                 end, {
-                "i",
-                "s"
+                    "i",
+                    "s"
                 }),
             },
 
             formatting = {
-                fields = {"kind", "abbr", "menu"},
+                fields = { "kind", "abbr", "menu" },
                 format = function(entry, vim_item)
                     -- Kind icons
                     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
                     -- vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concats the icons with the nmae of the item kind
 
                     vim_item.menu = ({
+                        nvim_lsp = "[LSP]",
+                        nvim_lua = "[NVIM LUA]",
                         luasnip = "[Snippet]",
                         buffer = "[Buffer]",
                         path = "[Path]",
@@ -123,9 +127,11 @@ return {
                 end,
             },
             sources = {
-                {name = "luasnip"},
-                {name = "buffer"},
-                {name = "path"},
+                { name = "nvim_lsp" },
+                { name = "nvim_lua" },
+                { name = "luasnip" },
+                { name = "buffer" },
+                { name = "path" },
             },
             confirm_opts = {
                 behavior = cmp.ConfirmBehavior.Replace,
@@ -143,4 +149,3 @@ return {
         }
     end,
 }
-
