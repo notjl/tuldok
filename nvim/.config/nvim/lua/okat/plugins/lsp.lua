@@ -1,6 +1,5 @@
 return {
     "junnplus/lsp-setup.nvim",
-    event = "BufReadPre",
     dependencies = {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
