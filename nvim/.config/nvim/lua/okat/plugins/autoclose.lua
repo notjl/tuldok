@@ -1,6 +1,17 @@
 return {
     "m4xshen/autoclose.nvim",
-    event = "InsertEnter",
+    keys = {
+        {"{", mode = "i"},
+        {"[", mode = "i"},
+        {"{", mode = "i"},
+        {">", mode = "i"},
+        {")", mode = "i"},
+        {"]", mode = "i"},
+        {"}", mode = "i"},
+        {'"', mode = "i"},
+        {"'", mode = "i"},
+        {"`", mode = "i"},
+    },
     config = function()
         require "autoclose".setup({
             keys = {
