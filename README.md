@@ -7,7 +7,7 @@ To start using the dotfiles, install these: [fastfetch](https://github.com/Linus
 
 ### Nerd Fonts
 After installing the requirements, configure font family for the terminal emulator [kitty] by downloading a font from [Nerd Fonts](https://www.nerdfonts.com/) (preferably, Ubuntu Mono since kitty is configured to do so).
-> If font is not Ubuntu Mono, you can configure the font family used by kitty by editing [./kitty/.config/kitty/font.conf](font.conf) and changing to your desired font by consulting `kitty +list-fonts`
+> If font is not Ubuntu Mono, you can configure the font family used by kitty by editing [font.conf](./kitty/.config/kitty/font.conf) and changing to your desired font by consulting `kitty +list-fonts`
 
 ### ZSH Environment
 ZSH environment variables are configured to be stored inside the XDG compliant config directory, which in this case is located at `$HOME/.config/zsh/` or `$XDG_CONFIG_HOME`.
