@@ -11,6 +11,15 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
+        {
+            "L3MON4D3/LuaSnip",
+            dependencies = {
+                "rafamadriz/friendly-snippets",
+            },
+            config = function()
+                require("luasnip.loaders.from_vscode").lazy_load()
+            end
+        },
     },
 
     opts = function()
