@@ -7,7 +7,7 @@ To start using the dotfiles, install these: [fastfetch](https://github.com/Linus
 
 ### Neovim Requirements
 Telescope plugin uses some binaries that it needs in order to run properly. The binaries are: [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/), 
-[fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep)
+[fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [Node.js](https://nodejs.org/en/)
 
 ### Nerd Fonts
 After installing the requirements, configure font family for the terminal emulator [kitty] by downloading a font from [Nerd Fonts](https://www.nerdfonts.com/) (preferably, Ubuntu Mono since kitty is configured to do so).
