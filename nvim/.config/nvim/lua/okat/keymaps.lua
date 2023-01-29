@@ -42,17 +42,13 @@ local keybindings = {
         ["<S-l>"] = ":bn<CR>",
         ["<S-h>"] = ":bp<CR>",
 
-        -- telescope shortcuts --
-        ["<LEADER>f"] = ":Telescope find_files<CR>",
-        ["<C-t>"] = ":Telescope live_grep<CR>",
-
         -- trouble shortcuts --
-        ["<LEADER>xx"] = ":TroubleToggle<CR>",
-        ["<LEADER>xw"] = ":TroubleToggle<CR>",
-        ["<LEADER>xd"] = "TroubleToggle<CR>",
+        -- ["<LEADER>xx"] = ":TroubleToggle<CR>",
+        -- ["<LEADER>xw"] = ":TroubleToggle<CR>",
+        -- ["<LEADER>xd"] = "TroubleToggle<CR>",
 
         -- format shortcut --
-        ["<LEADER>F"] = ":Format<CR>",
+        ["<LEADER><S-f>"] = ":Format<CR>",
     },
 
     -- [INSERT] --
@@ -67,8 +63,7 @@ local keybindings = {
         ["<"] = "<gv",
         [">"] = ">gv",
 
-        -- move text up and down --
-        ["<A-k>"] = ":m .-2<CR>==",
+        -- move text up and down -- ["<A-k>"] = ":m .-2<CR>==",
         ["<A-j>"] = ":m .+1<CR>==",
     },
 

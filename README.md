@@ -5,6 +5,10 @@ It is ever changing and will depend on the whims of tako.
 ### Requirements
 To start using the dotfiles, install these: [fastfetch](https://github.com/LinusDierheimer/fastfetch), [kitty](https://github.com/kovidgoyal/kitty), [neovim](https://github.com/neovim/neovim), [starship](https://github.com/starship/starship), and [zsh](https://zsh.sourceforge.io/).
 
+### Neovim Requirements
+Telescope plugin uses some binaries that it needs in order to run properly. The binaries are: [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/), 
+[fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep)
+
 ### Nerd Fonts
 After installing the requirements, configure font family for the terminal emulator [kitty] by downloading a font from [Nerd Fonts](https://www.nerdfonts.com/) (preferably, Ubuntu Mono since kitty is configured to do so).
 > If font is not Ubuntu Mono, you can configure the font family used by kitty by editing [font.conf](./kitty/.config/kitty/font.conf) and changing to your desired font by consulting `kitty +list-fonts`

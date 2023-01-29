@@ -43,8 +43,8 @@ local opts = {
     wb = false,                                             -- make a backup before overwriting a file
     wim = "longest,list,full",                              -- mode for 'wildchar' command-line expansion
     -- cocu = "nc",                                         -- conceal cursor for normal and command
-    cmdheight = 2,                                          -- Height for the command line
-    timeoutlen = 100,                                       -- Timeout for mapped sequences
+    cmdheight = 1,                                          -- Height for the command line
+    timeoutlen = 300,                                       -- Timeout for mapped sequences
 }
 
 opt.shm:append('c')
