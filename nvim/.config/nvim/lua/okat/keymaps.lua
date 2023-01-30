@@ -19,7 +19,6 @@ local keybindings = {
         ["<LEADER>w"] = ":w<CR>",
 
         -- remap quitting --
-        ["<LEADER>q"] = ":Bdelete<CR>",
         ["<LEADER>Q"] = ":q<CR>",
         ["<LEADER>Qa"] = ":qa<CR>",
 
@@ -28,9 +27,6 @@ local keybindings = {
         ["<C-j>"] = "<C-w>j",
         ["<C-k>"] = "<C-w>k",
         ["<C-l>"] = "<C-w>l",
-
-        -- open explorer --
-        ["<LEADER>e"] = ":Lex 30<CR>",
 
         -- resize splits with arrow --
         ["<C-Up>"] = ":res +5<CR>",
