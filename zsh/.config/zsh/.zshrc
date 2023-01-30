@@ -61,6 +61,7 @@ eval "$(starship init zsh)"
 # Kitty aliases
 alias icat="kitty +kitten icat"
 alias d="kitty +kitten diff"
+alias differ="git difftool --no-symlinks --dir-diff"
 
 # Alias neovim to old vim
 alias oldvim='\vim'
@@ -70,5 +71,4 @@ alias v='nvim'
 
 # Octopus banner every terminal init
 # echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
-echo 
 fastfetch
