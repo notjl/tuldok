@@ -2,6 +2,7 @@
 local oks = {
     ["VIM Options"] = pcall(require, "okat.options"),
     ["VIM Keymap"] = pcall(require, "okat.keymaps"),
+    ["VIM Autocmd"] = pcall(require, "okat.autocmd"),
     ["Plugins"] = pcall(require, "okat.plugin_manager"),
 }
 
