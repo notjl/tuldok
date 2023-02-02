@@ -22,7 +22,7 @@ $ sudoedit /etc/zsh/zshenv
 
 -- OR --
 
-$ EDITOR=your choice text editor sudo /etc/zsh/zshenv
+$ EDITOR="your choice text editor" sudoedit /etc/zsh/zshenv
 ```
 And add this line:
 ```sh
