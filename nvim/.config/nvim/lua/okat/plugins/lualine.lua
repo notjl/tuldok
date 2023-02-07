@@ -4,6 +4,7 @@
 -- for every mode available in vim.
 return {
     "nvim-lualine/lualine.nvim",
+    events = "VeryLazy",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },

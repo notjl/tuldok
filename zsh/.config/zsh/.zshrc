@@ -69,6 +69,9 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 
+# Alias webcam using mpv and /dev/video0
+alias webcam="mpv /dev/video0"
+
 # Octopus banner every terminal init
 # echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
 fastfetch

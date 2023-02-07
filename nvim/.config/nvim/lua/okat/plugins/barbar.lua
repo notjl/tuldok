@@ -1,6 +1,6 @@
 return {
     "romgrk/barbar.nvim",
-    event = "BufNew",
+    event = "VeryLazy",
     keys = {
         {"<A-h>", "<CMD>BufferPrevious<CR>"},
         {"<A-l>", "<CMD>BufferNext<CR>"},
