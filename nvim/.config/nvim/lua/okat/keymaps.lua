@@ -44,7 +44,7 @@ local keybindings = {
         -- ["<LEADER>xd"] = "TroubleToggle<CR>",
 
         -- format shortcut --
-        ["<LEADER><S-f>"] = ":Format<CR>",
+        -- ["<LEADER><S-f>"] = ":Format<CR>",
     },
 
     -- [INSERT] --
@@ -59,7 +59,8 @@ local keybindings = {
         ["<"] = "<gv",
         [">"] = ">gv",
 
-        -- move text up and down -- ["<A-k>"] = ":m .-2<CR>==",
+        -- move text up and down -- 
+        ["<A-k>"] = ":m .-2<CR>==",
         ["<A-j>"] = ":m .+1<CR>==",
     },
 
@@ -67,7 +68,7 @@ local keybindings = {
     ["x"] = {
         -- move text up and down --
         ["<A-j>"] = ":m '>+1<CR>gv-gv",
-        ["<A-j>"] = ":m '<-2<CR>gv-gv",
+        ["<A-k>"] = ":m '<-2<CR>gv-gv",
     },
 
 }
