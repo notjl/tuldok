@@ -11,6 +11,8 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
+        "lukas-reineke/cmp-under-comparator",
+        "onsails/lspkind.nvim",
         {
             "L3MON4D3/LuaSnip",
             dependencies = {
@@ -119,21 +121,42 @@ return {
             },
 
             formatting = {
-                fields = { "kind", "abbr", "menu" },
-                format = function(entry, vim_item)
-                    -- Kind icons
-                    vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                    -- vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concats the icons with the nmae of the item kind
+                -- fields = { "kind", "abbr", "menu" },
+                fields = { "abbr", "kind", "menu" },
+                format = require("lspkind").cmp_format({
+                    mode = "symbol_text",
+                    preset = "codicons",
+                    maxwidth = 50,
+                    ellipsis_char = "...",
+                    before = function(entry, vim_item)
+                        -- kind icons
+                        -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+                        -- vim_item.kind = require("lspkind").presets.default[vim_item.kind]
 
-                    vim_item.menu = ({
-                        nvim_lsp = "[LSP]",
-                        nvim_lua = "[NVIM LUA]",
-                        luasnip = "[Snippet]",
-                        buffer = "[Buffer]",
-                        path = "[Path]",
-                    })[entry.source.name]
-                    return vim_item
-                end,
+                        vim_item.menu = ({
+                            nvim_lsp = "[LSP]",
+                            nvim_lua = "[NVIM LUA]",
+                            luasnip = "[Snippet]",
+                            buffer = "[Buffer]",
+                            path = "[Path]",
+                        })[entry.source.name]
+                        return vim_item
+                    end,
+                })
+                -- format = function(entry, vim_item)
+                --     -- Kind icons
+                --     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+                --     -- vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concats the icons with the nmae of the item kind
+                --
+                --     vim_item.menu = ({
+                --         nvim_lsp = "[LSP]",
+                --         nvim_lua = "[NVIM LUA]",
+                --         luasnip = "[Snippet]",
+                --         buffer = "[Buffer]",
+                --         path = "[Path]",
+                --     })[entry.source.name]
+                --     return vim_item
+                -- end,
             },
             sources = {
                 { name = "nvim_lsp" },
@@ -155,6 +178,16 @@ return {
                 ghost_text = false,
                 native_menu = false,
             },
+            comparators = {
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
+                require("cmp-under-comparator").under,
+                cmp.config.compare.kind,
+                cmp.config.compare.sort_text,
+                cmp.config.compare.length,
+                cmp.config.compare.order,
+            }
         }
     end,
 }

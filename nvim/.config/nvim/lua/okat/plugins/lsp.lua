@@ -5,6 +5,20 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "RRethy/vim-illuminate",
+
+        -- Trouble Plugin --
+        {
+            "folke/trouble.nvim",
+            cmd = "Trouble",
+            dependencies = {
+                "nvim-tree/nvim-web-devicons"
+            },
+            config = function()
+                require("trouble").setup({
+                })
+            end
+        },
+
     },
     config = function()
         local capabilities = vim.lsp.protocol.make_client_capabilities()
