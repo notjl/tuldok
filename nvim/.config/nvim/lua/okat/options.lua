@@ -38,13 +38,13 @@ local opts = {
     spr = true,                                             -- new window is put right of the current one
     tgc = true,                                             -- terminal true color support
     ut = 300,                                               -- after this many milliseconds flush swap file
-    tm = 1000,                                              -- time out time in milliseconds
+    tm = 300,                                               -- time out time in milliseconds
+    to = true,                                              -- time out boolean
     title = true,                                           -- Vim set the title of the window
     wb = false,                                             -- make a backup before overwriting a file
     wim = "longest,list,full",                              -- mode for 'wildchar' command-line expansion
     -- cocu = "nc",                                         -- conceal cursor for normal and command
     cmdheight = 1,                                          -- Height for the command line
-    timeoutlen = 300,                                       -- Timeout for mapped sequences
 }
 
 opt.shm:append('c')

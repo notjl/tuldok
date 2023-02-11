@@ -72,6 +72,11 @@ alias v='nvim'
 # Alias webcam using mpv and /dev/video0
 alias webcam="mpv /dev/video0"
 
+# Create function/aliases to simplify envycontrol prompts
+alias gameon="sudo envycontrol -s nvidia; reboot"
+alias gameoff="sudo envycontrol -s integrated; reboot"
+alias poweroffint="sudo envycontrol -s integrated; poweroff"
+
 # Octopus banner every terminal init
 # echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
 fastfetch
