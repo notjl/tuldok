@@ -3,7 +3,7 @@ return {
     dependencies = {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        "notjl/mason-lspconfig.nvim",
         "RRethy/vim-illuminate",
 
         -- Trouble Plugin --
@@ -55,7 +55,7 @@ return {
 
         require("lsp-setup").setup({
             on_attach = function(client, bufnr)
-                if client.name == "sumneko_lua" then
+                if client.name == "lua_ls" then
                     client.server_capabilities.documentFormattingProvider = false
                 end
                 lsp_keymaps(bufnr)
@@ -67,7 +67,7 @@ return {
             servers = {
                 pylsp = {},
 
-                sumneko_lua = {
+                lua_ls = {
                     settings = {
                         Lua = {
                             diagnostics = {

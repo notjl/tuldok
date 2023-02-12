@@ -1,5 +1,5 @@
 local opts = {noremap=true, silent=true}
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
 -- remap <SPACE> (more accessible) as <LEADER>
 map("", "<SPACE>", "<NOP>", opts)
@@ -28,15 +28,29 @@ local keybindings = {
         ["<C-k>"] = "<C-w>k",
         ["<C-l>"] = "<C-w>l",
 
+        -- split creation --
+        ["sv"] = ":vsplit<CR><C-w>w",
+        ["ss"] = ":split<CR><C-w>w",
+
         -- resize splits with arrow --
-        ["<C-Up>"] = ":res +5<CR>",
-        ["<C-Down>"] = ":res -5<CR>",
-        ["<C-Left>"] = ":vert res -5<CR>",
-        ["<C-Right>"] = ":vert res +5<CR>",
+        ["<C-Up>"] = "<C-w>+",
+        ["<C-Down>"] = "<C-w>-",
+        ["<C-Left>"] = "<C-w><",
+        ["<C-Right>"] = "<C-w>>",
 
         -- buffer navigation --
         ["<S-l>"] = ":bn<CR>",
         ["<S-h>"] = ":bp<CR>",
+
+        -- do not yank with x --
+        ["x"] = '"_x',
+
+        -- increment/decrement --
+        ["+"] = "<C-a>",
+        ["-"] = "<C-x>",
+
+        -- delete a word backwards --"
+        ["dw"] = 'vb"_d'
 
         -- trouble shortcuts --
         -- ["<LEADER>xx"] = ":TroubleToggle<CR>",

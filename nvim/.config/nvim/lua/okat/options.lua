@@ -16,7 +16,7 @@ local opts = {
     wrap = false,                                           -- lines wrap and continue on the next line
     cb = "unnamedplus",                                     -- use the clipboard as the unnamed register
     -- lcs = "eol:↴,tab:<->,extends:>,precedes:<,lead:·",   -- characters for displaying in list mode (eol: ↵)
-    lcs = "eol:↴,tab:<->,extends:>,precedes:<",             -- characters for displaying in list mode (eol: ↵)
+    lcs = "eol:↴,extends:>,precedes:<",                     -- characters for displaying in list mode (eol: ↵)
     list = true,                                            -- <Tab> and <EOL>
     -- gcr = "a:block",                                     -- GUI: settings for cursor shape and blinking
     cul = true,                                             -- hightlight the screen line of the cursor
@@ -46,8 +46,6 @@ local opts = {
     -- cocu = "nc",                                         -- conceal cursor for normal and command
     cmdheight = 1,                                          -- Height for the command line
 }
-
-opt.shm:append('c')
 
 local to_append = {
     isk = "-",                                              -- characters included in keywords
