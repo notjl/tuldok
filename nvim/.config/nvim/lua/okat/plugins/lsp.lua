@@ -1,6 +1,6 @@
 return {
   'junnplus/lsp-setup.nvim',
-  event = 'BufReadPre',
+  event = { 'BufReadPre', 'BufNewFile' },
   keys = {
     { '<LEADER>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', desc = 'Definition' },
     { '<LEADER>lD', '<CMD>lua vim.lsp.buf.declaration()<CR>', desc = 'Declaration' },
@@ -20,17 +20,6 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'RRethy/vim-illuminate',
-    -- Trouble Plugin --
-    {
-      'folke/trouble.nvim',
-      cmd = 'Trouble',
-      dependencies = {
-        'nvim-tree/nvim-web-devicons',
-      },
-      config = function()
-        require('trouble').setup({})
-      end,
-    },
   },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()

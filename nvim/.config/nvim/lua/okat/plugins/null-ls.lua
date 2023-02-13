@@ -1,5 +1,6 @@
 return {
   'jose-elias-alvarez/null-ls.nvim',
+  event = { 'BufReadPre', 'BufNewFile' },
   opts = function()
     local ok, null_ls = pcall(require, 'null-ls')
     if not ok then

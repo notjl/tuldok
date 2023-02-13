@@ -1,6 +1,18 @@
 return {
   'ZhiyuanLck/smart-pairs',
-  event = 'InsertEnter',
+  keys = {
+    { '{', mode = 'i' },
+    { '[', mode = 'i' },
+    { '{', mode = 'i' },
+    { '>', mode = 'i' },
+    { ')', mode = 'i' },
+    { ']', mode = 'i' },
+    { '}', mode = 'i' },
+    { '"', mode = 'i' },
+    { "'", mode = 'i' },
+    { '`', mode = 'i' },
+  },
+  -- event = 'InsertEnter',
   config = function()
     require('pairs'):setup({})
   end,

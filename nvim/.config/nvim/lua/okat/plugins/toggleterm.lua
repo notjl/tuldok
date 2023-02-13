@@ -1,7 +1,7 @@
 return {
   'akinsho/toggleterm.nvim',
   keys = {
-    [[<C-\>]],
+    { [[<C-\>]], desc = 'Toggle Terminal' },
   },
   config = function()
     require('toggleterm').setup({

@@ -1,6 +1,6 @@
 return {
   'andweeb/presence.nvim',
-  event = 'VimEnter',
+  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     require('presence'):setup({
       -- General options --
