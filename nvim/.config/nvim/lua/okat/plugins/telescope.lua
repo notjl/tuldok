@@ -1,5 +1,15 @@
 return {
   'nvim-telescope/telescope.nvim',
+  keys = {
+    { '<LEADER>tg', '<CMD>Telescope live_grep<CR>', desc = 'Live Grep' },
+    { '<LEADER>tf', '<CMD>Telescope find_files theme=dropdown<CR>', desc = 'Find Files' },
+    { '<LEADER>tb', '<CMD>Telescope buffers<CR>', desc = 'Buffers' },
+    { '<LEADER>th', '<CMD>Telescope help_tags<CR>', desc = 'Help Tags' },
+    { '<LEADER>tr', '<CMD>Telescope lsp_references<CR>', desc = 'LSP References' },
+    { '<LEADER>td', '<CMD>Telescope diagnostics<CR>', desc = 'Diagnostics' },
+    { '<LEADER>ti', '<CMD>Telescope lsp_implementations<CR>', desc = 'LSP Implementations' },
+    { '<LEADER>tD', '<CMD>Telescope lsp_definitions<CR>', desc = 'LSP Definitions' },
+  },
   version = '0.1.x',
   lazy = true,
   cmd = 'Telescope',
@@ -11,10 +21,6 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
     },
-  },
-  keys = {
-    { '<LEADER>ff', '<CMD>Telescope find_files theme=dropdown<CR>' },
-    { '<C-t>', '<CMD>Telescope live_grep<CR>' },
   },
   opts = function()
     local status_ok, telescope = pcall(require, 'telescope')

@@ -20,8 +20,6 @@ return {
             'Spaces',
             '--indent-width',
             '2',
-            '--column-width',
-            '80',
             '--quote-style',
             'AutoPreferSingle',
           },

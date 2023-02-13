@@ -16,11 +16,11 @@ local keybindings = {
     ['<S-s>'] = ':%s//g<LEFT><LEFT>',
 
     -- remap saving --
-    ['<LEADER>w'] = ':w<CR>',
+    ['<LEADER>w'] = '<CMD>w<CR>',
 
     -- remap quitting --
-    ['<LEADER>Q'] = ':q<CR>',
-    ['<LEADER>Qa'] = ':qa<CR>',
+    ['<LEADER>q'] = '<CMD>q<CR>',
+    ['<LEADER>Qa'] = '<CMD>qa<CR>',
 
     -- split navigation --
     ['<C-h>'] = '<C-w>h',
@@ -29,8 +29,8 @@ local keybindings = {
     ['<C-l>'] = '<C-w>l',
 
     -- split creation --
-    ['sv'] = ':vsplit<CR><C-w>w',
-    ['ss'] = ':split<CR><C-w>w',
+    ['<LEADER>sv'] = ':vsplit<CR><C-w>w',
+    ['<LEADER>ss'] = ':split<CR><C-w>w',
 
     -- resize splits with arrow --
     ['<C-Up>'] = '<C-w>+',
@@ -39,8 +39,8 @@ local keybindings = {
     ['<C-Right>'] = '<C-w>>',
 
     -- buffer navigation --
-    ['<S-l>'] = ':bn<CR>',
-    ['<S-h>'] = ':bp<CR>',
+    -- ['<S-l>'] = ':bn<CR>',
+    -- ['<S-h>'] = ':bp<CR>',
 
     -- do not yank with x --
     ['x'] = '"_x',

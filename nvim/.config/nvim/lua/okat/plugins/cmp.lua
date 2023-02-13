@@ -40,34 +40,6 @@ return {
       return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
     end
 
-    local kind_icons = {
-      Text = '',
-      Method = 'm',
-      Function = '',
-      Constructor = '',
-      Field = '',
-      Variable = '',
-      Class = '',
-      Interface = '',
-      Module = '',
-      Property = '',
-      Unit = '',
-      Value = '',
-      Enum = '',
-      Keyword = '',
-      Snippet = '',
-      Color = '',
-      File = '',
-      Reference = '',
-      Folder = '',
-      EnumMember = '',
-      Constant = '',
-      Struct = '',
-      Event = '',
-      Operator = '',
-      TypeParameter = '',
-    }
-
     -- cmp.setup {
     return {
       snippet = {
@@ -121,7 +93,6 @@ return {
       },
 
       formatting = {
-        -- fields = { "kind", "abbr", "menu" },
         fields = { 'abbr', 'kind', 'menu' },
         format = require('lspkind').cmp_format({
           mode = 'symbol_text',
@@ -129,10 +100,6 @@ return {
           maxwidth = 50,
           ellipsis_char = '...',
           before = function(entry, vim_item)
-            -- kind icons
-            -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            -- vim_item.kind = require("lspkind").presets.default[vim_item.kind]
-
             vim_item.menu = ({
               nvim_lsp = '[LSP]',
               nvim_lua = '[NVIM LUA]',
@@ -143,20 +110,6 @@ return {
             return vim_item
           end,
         }),
-        -- format = function(entry, vim_item)
-        --     -- Kind icons
-        --     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        --     -- vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concats the icons with the nmae of the item kind
-        --
-        --     vim_item.menu = ({
-        --         nvim_lsp = "[LSP]",
-        --         nvim_lua = "[NVIM LUA]",
-        --         luasnip = "[Snippet]",
-        --         buffer = "[Buffer]",
-        --         path = "[Path]",
-        --     })[entry.source.name]
-        --     return vim_item
-        -- end,
       },
       sources = {
         { name = 'nvim_lsp' },

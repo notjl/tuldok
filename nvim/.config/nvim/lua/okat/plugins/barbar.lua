@@ -2,9 +2,21 @@ return {
   'romgrk/barbar.nvim',
   event = 'VeryLazy',
   keys = {
-    { '<A-h>', '<CMD>BufferPrevious<CR>' },
-    { '<A-l>', '<CMD>BufferNext<CR>' },
-    { '<LEADER>q', '<CMD>BufferClose<CR>' },
+    { '<S-h>', '<CMD>BufferPrevious<CR>', desc = 'Go to Previous Buffer' },
+    { '<S-l>', '<CMD>BufferNext<CR>', desc = 'Go to Next Buffer' },
+    { '<S-<>', '<CMD>BufferMovePrevious<CR>', desc = 'Move Current Buffer Left' },
+    { '<S->>', '<CMD>BufferMoveNext<CR>', desc = 'Move Current Buffer Right' },
+    { '<LEADER>bp', '<CMD>BufferPin<CR>', desc = 'Pin Current Buffer' },
+    { '<LEADER>bP', '<CMD>BufferPick<CR>', desc = 'Magic Buffer Pick Mode' },
+    { '<LEADER>bb', '<CMD>BufferOrderByBufferNumber<CR>', desc = 'Order Buffer by Buffer Number' },
+    { '<LEADER>bd', '<CMD>BufferOrderByDirectory<CR>', desc = 'Order Buffer by Directory' },
+    { '<LEADER>bl', '<CMD>BufferOrderByLanguage<CR>', desc = 'Order Buffer by Language' },
+    { '<LEADER>bw', '<CMD>BufferOrderByWindowNumber<CR>', desc = 'Order Buffer by WindowNumber' },
+    { '<LEADER>bq', '<CMD>BufferClose<CR>', desc = 'Close Current Buffer' },
+    { '<LEADER>bQ', '<CMD>BufferCloseAllButCurrent<CR>', desc = 'Close All Buffer Except Current' },
+  },
+  dependency = {
+    'nvim-tree/nvim-web-devicons',
   },
   config = function()
     -- Taken from https://github.com/romgrk/barbar.nvim/issues/355 --

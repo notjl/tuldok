@@ -1,10 +1,13 @@
 return {
   'numToStr/Comment.nvim',
   keys = {
-    { 'gc', mode = 'v' },
-    { 'gb', mode = 'v' },
-    { 'gcc', mode = 'n' },
-    { 'gbc', mode = 'n' },
+    { '<LEADER>b', mode = 'v', desc = 'Block Comment' },
+    { '<LEADER>c', mode = 'v', desc = 'Line Comment' },
+    { '<LEADER>cc', mode = 'n', desc = 'Line Comment Toggle' },
+    { '<LEADER>c0', mode = 'n', desc = 'Line Comment Above' },
+    { '<LEADER>co', mode = 'n', desc = 'Line Comment Below' },
+    { '<LEADER>cA', mode = 'n', desc = 'Comment End of the Line' },
+    { '<LEADER>cb', mode = 'n', desc = 'Block Comment Toggle' },
   },
   config = function()
     require('Comment').setup({
@@ -20,27 +23,27 @@ return {
       ---LHS of toggle mappings in NORMAL mode
       toggler = {
         ---Line-comment toggle keymap
-        line = 'gcc',
+        line = '<LEADER>cc',
         ---Block-comment toggle keymap
-        block = 'gbc',
+        block = '<LEADER>bc',
       },
 
       ---LHS of operator-pending mappings in NORMAL and VISUAL mode
       opleader = {
         ---Line-comment keymap
-        line = 'gc',
+        line = '<LEADER>c',
         ---Block-comment keymap
-        block = 'gb',
+        block = '<LEADER>b',
       },
 
       ---LHS of extra mappings
       extra = {
         ---Add comment on the line above
-        above = 'gcO',
+        above = '<LEADER>cO',
         ---Add comment on the line below
-        below = 'gco',
+        below = '<LEADER>co',
         ---Add comment at the end of line
-        eol = 'gcA',
+        eol = '<LEADER>cA',
       },
 
       ---Enable keybindings

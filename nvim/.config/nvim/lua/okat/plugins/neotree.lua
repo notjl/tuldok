@@ -1,7 +1,7 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   keys = {
-    { '<LEADER>ee', '<CMD>Neotree toggle<CR>' },
+    { '<LEADER>ee', '<CMD>Neotree toggle<CR>', desc = 'Toggle Neotree' },
   },
   cmd = 'Neotree',
   version = '2.x',

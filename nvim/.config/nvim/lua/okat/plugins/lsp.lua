@@ -1,11 +1,25 @@
 return {
   'junnplus/lsp-setup.nvim',
+  event = 'BufReadPre',
+  keys = {
+    { '<LEADER>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', desc = 'Definition' },
+    { '<LEADER>lD', '<CMD>lua vim.lsp.buf.declaration()<CR>', desc = 'Declaration' },
+    { '<LEADER>lk', '<CMD>lua vim.lsp.buf.hover()<CR>', desc = 'Hover' },
+    { '<LEADER>li', '<CMD>lua vim.lsp.buf.implementation()<CR>', desc = 'Implementation' },
+    { '<LEADER>l<C-k>', '<CMD>lua vim.lsp.buf.signature_help()<CR>', desc = 'Signature Help' },
+    -- { '<LEADER>lrn', '<CMD>lua vim.lsp.buf.rename()<CR>', desc = 'Rename' },
+    { '<LEADER>lr', '<CMD>lua vim.lsp.buf.references()<CR>', desc = 'References' },
+    { '<LEADER>lc', '<CMD>lua vim.lsp.buf.code_action()<CR>', desc = 'Code Action' },
+    { '<LEADER>lf', '<CMD>lua vim.diagnostic.open_float()<CR>', desc = 'Open Float Diagnostic' },
+    { '<LEADER>l[', '<CMD>lua vim.diagnostic.goto_prev { border = "rounded" }<CR>', desc = 'Previous Diagnostic' },
+    { '<LEADER>l]', '<CMD>lua vim.diagnostic.goto_next { border = "rounded" }<CR>', desc = 'Next Diagnostic' },
+    { '<LEADER>l<C-d>', '<CMD>lua vim.diagnostic.setloclist()<CR>', desc = 'Set Loc List' },
+  },
   dependencies = {
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'RRethy/vim-illuminate',
-
     -- Trouble Plugin --
     {
       'folke/trouble.nvim',
@@ -33,31 +47,6 @@ return {
 
     local function lsp_keymaps(bufnr)
       local opts = { noremap = true, silent = true }
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-      -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-      -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(
-        bufnr,
-        'n',
-        '[d',
-        '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
-        opts
-      )
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-      vim.api.nvim_buf_set_keymap(
-        bufnr,
-        'n',
-        ']d',
-        '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
-        opts
-      )
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>d', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
       vim.cmd(
         [[ command! Format execute 'lua vim.lsp.buf.format { async = true, filter = function(client) return client.name == "null-ls" end }' ]]
       )
@@ -65,9 +54,6 @@ return {
 
     require('lsp-setup').setup({
       on_attach = function(client, bufnr)
-        -- if client.name == "lua_ls" then
-        --   client.server_capabilities.documentFormattingProvider = false
-        -- end
         lsp_keymaps(bufnr)
         illuminate.on_attach(client)
       end,
