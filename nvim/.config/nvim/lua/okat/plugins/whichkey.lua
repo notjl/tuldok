@@ -44,7 +44,7 @@ return {
       },
 
       -- Surround --
-      s = {
+      ['<C-s>'] = {
         name = '+Surround',
         a = { 'Add' },
         d = { 'Delete' },
