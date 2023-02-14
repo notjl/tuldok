@@ -37,6 +37,7 @@ return {
           'dashboard',
           'neo-tree',
           'Trouble',
+          'lspsagaoutline',
         },
         component_separators = '',
         section_separators = '',

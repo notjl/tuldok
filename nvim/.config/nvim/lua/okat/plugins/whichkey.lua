@@ -26,7 +26,7 @@ return {
         g = { name = '+Gitsigns Actions', t = { '+Toggle Actions' } },
 
         -- LSP --
-        l = { name = '+LSP' },
+        l = { name = '+LSP', r = { name = '+Rename' } },
 
         -- Split Creation --
         s = { name = '+Split', v = { name = 'Vertical' }, s = { name = 'Split' } },
@@ -35,6 +35,8 @@ return {
         t = { name = '+Telescope' },
 
         w = { 'Write File' },
+
+        q = { name = 'Quit' },
 
         Q = { name = '+Quit', a = { 'Quit All' } },
 

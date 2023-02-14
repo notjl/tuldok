@@ -2,24 +2,56 @@ return {
   'junnplus/lsp-setup.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
   keys = {
-    { '<LEADER>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', desc = 'Definition' },
-    { '<LEADER>lD', '<CMD>lua vim.lsp.buf.declaration()<CR>', desc = 'Declaration' },
-    { '<LEADER>lk', '<CMD>lua vim.lsp.buf.hover()<CR>', desc = 'Hover' },
-    { '<LEADER>li', '<CMD>lua vim.lsp.buf.implementation()<CR>', desc = 'Implementation' },
-    { '<LEADER>l<C-k>', '<CMD>lua vim.lsp.buf.signature_help()<CR>', desc = 'Signature Help' },
-    -- { '<LEADER>lrn', '<CMD>lua vim.lsp.buf.rename()<CR>', desc = 'Rename' },
-    { '<LEADER>lr', '<CMD>lua vim.lsp.buf.references()<CR>', desc = 'References' },
-    { '<LEADER>lc', '<CMD>lua vim.lsp.buf.code_action()<CR>', desc = 'Code Action' },
-    { '<LEADER>lf', '<CMD>lua vim.diagnostic.open_float()<CR>', desc = 'Open Float Diagnostic' },
-    { '<LEADER>l[', '<CMD>lua vim.diagnostic.goto_prev { border = "rounded" }<CR>', desc = 'Previous Diagnostic' },
-    { '<LEADER>l]', '<CMD>lua vim.diagnostic.goto_next { border = "rounded" }<CR>', desc = 'Next Diagnostic' },
-    { '<LEADER>l<C-d>', '<CMD>lua vim.diagnostic.setloclist()<CR>', desc = 'Set Loc List' },
+    { '<LEADER>lf', '<CMD>Lspsaga lsp_finder<CR>', desc = 'Finder' },
+    { '<LEADER>la', '<CMD>Lspsaga code_action<CR>', desc = 'Code Action', mode = { 'n', 'v' } },
+    { '<LEADER>lrn', '<CMD>Lspsaga rename<CR>', desc = 'Rename' },
+    { '<LEADER>lrN', '<CMD>Lspsaga rename ++project<CR>', desc = 'Rename (All)' },
+    { '<LEADER>ld', '<CMD>Lspsaga peek_definition<CR>', desc = 'Peek Definition' },
+    { '<LEADER>lD', '<CMD>Lspsaga goto_definition<CR>', desc = 'Go to Definition' },
+    { '<LEADER>lt', '<CMD>Lspsaga peek_type_defintion<CR>', desc = 'Peek Type Definition' },
+    { '<LEADER>lT', '<CMD>Lspsaga goto_type_definition<CR>', desc = 'Go to Type Definition' },
+    { '<LEADER>ll', '<CMD>Lspsaga show_line_diagnostics<CR>', desc = 'Show Line Diagnostics' },
+    { '<LEADER>lc', '<CMD>Lspsaga show_cursor_diagnostics<CR>', desc = 'Show Cursor Diagnostics' },
+    { '<LEADER>lb', '<CMD>Lspsaga show_buf_diagnostics<CR>', desc = 'Show Buffer Diagnostics' },
+    { '<LEADER>lo', '<CMD>Lspsaga outline<CR>', desc = 'Show Outline' },
+    { '<LEADER>lk', '<CMD>Lspsaga hover_doc<CR>', desc = 'Show Hover Doc' },
+    { '<LEADER>lK', '<CMD>Lspsaga hover_doc ++keep<CR>', desc = 'Show Hover Doc (Keep)' },
+    { '<LEADER>l[', '<CMD>Lspsaga diagnostic_jump_prev<CR>', desc = 'Jump to Previous Diagnostic' },
+    { '<LEADER>l]', '<CMD>Lspsaga diagnostic_jump_next<CR>', desc = 'Jump to Next Diagnostic' },
+    {
+      '<LEADER>l{',
+      function()
+        require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+      end,
+      desc = 'Jump to Previous Diagnostic (ERROR)',
+    },
+    {
+      '<LEADER>l}',
+      function()
+        require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })
+      end,
+      desc = 'Jump to Next Diagnostic (ERROR)',
+    },
   },
   dependencies = {
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'RRethy/vim-illuminate',
+    {
+      'glepnir/lspsaga.nvim',
+      dependencies = {
+        'nvim-tree/nvim-web-devicons',
+      },
+      config = function()
+        require('lspsaga').setup({
+          symbol_in_winbar = {
+            enable = false,
+            color_mode = false,
+          },
+        })
+      end,
+    },
   },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()

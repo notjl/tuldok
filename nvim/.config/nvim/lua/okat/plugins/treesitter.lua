@@ -24,6 +24,8 @@ return {
       'regex',
       'rust',
       'sql',
+      'markdown',
+      'markdown_inline',
     },
     sync_install = false,
     ignore_install = { '' },
