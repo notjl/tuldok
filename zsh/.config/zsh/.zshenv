@@ -35,3 +35,8 @@ export TAKO_DOTFILES=$HOME/Repositories/tuldok
 
 # Change Starship.rs config file location
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+
+# ADD $HOME/.local/bin in PATH
+typeset -U path PATH
+path=($HOME/.local/bin $path)
+export PATH
