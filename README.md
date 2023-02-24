@@ -6,7 +6,7 @@ It is ever changing and will depend on the whims of tako.
 To start using the dotfiles, install these: [fastfetch](https://github.com/LinusDierheimer/fastfetch), [kitty](https://github.com/kovidgoyal/kitty),
 [neovim](https://github.com/neovim/neovim), [starship](https://github.com/starship/starship), and [zsh](https://zsh.sourceforge.io/).
 
-### Neovim Requirements
+#### Neovim Requirements
 [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) plugin uses some binaries that it needs in order to run properly. The binaries are: [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/), 
 [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep).
 
@@ -17,6 +17,9 @@ To start using the dotfiles, install these: [fastfetch](https://github.com/Linus
 > NOTE: You can always check the dependencies needed by the plugins by using `:checkhealth` in Vim
 
 > NOTE: clipboard seems to work if [xsel](https://github.com/kfish/xsel)/[xclip](https://github.com/astrand/xclip) is installed, if on Wayland use: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
+
+#### ZSH Requirements
+In order to use `pomodoro` alias, install [timer](https://github.com/caarlos0/timer)
 
 ### Nerd Fonts
 After installing the requirements, configure font family for the terminal emulator [kitty] by downloading a font from [Nerd Fonts](https://www.nerdfonts.com/) (preferably, Ubuntu Mono since kitty is configured to do so).
