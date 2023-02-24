@@ -4,7 +4,9 @@ It is ever changing and will depend on the whims of tako.
 
 ### Requirements
 To start using the dotfiles, install these: [fastfetch](https://github.com/LinusDierheimer/fastfetch), [kitty](https://github.com/kovidgoyal/kitty),
-[neovim](https://github.com/neovim/neovim), [starship](https://github.com/starship/starship), and [zsh](https://zsh.sourceforge.io/).
+[neovim](https://github.com/neovim/neovim), [starship](https://github.com/starship/starship), [zsh](https://zsh.sourceforge.io/),
+[MangoHud](https://github.com/flightlessmango/MangoHud), [BetterDiscord](https://github.com/BetterDiscord/BetterDiscord),
+and [btop](https://github.com/aristocratos/btop).
 
 #### Neovim Requirements
 [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) plugin uses some binaries that it needs in order to run properly. The binaries are: [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/), 

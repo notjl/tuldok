@@ -84,6 +84,14 @@ return {
       servers = {
         pylsp = {},
 
+        bashls = {},
+
+        -- clangd = {},
+
+        gopls = {},
+
+        rust_analyzer = {},
+
         lua_ls = {
           settings = {
             Lua = {

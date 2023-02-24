@@ -25,6 +25,8 @@ return {
             'AutoPreferSingle',
           },
         }),
+
+        formatting.gofmt,
       },
     }
   end,
