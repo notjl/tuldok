@@ -44,6 +44,10 @@ export ZDOTDIR="$HOME"/.config/zsh
 ```
 This defaults your zsh config directory at $HOME/.config/zsh
 
+### Installation
+The installation is rather primitive and makes use of [GNU Stow](https://www.gnu.org/software/stow/).
+Once installed, you can then run it under terminal `sh install.sh`
+
 ### Additional Reads
 In each dot directory, there is a README file for additional information of where did the inspiration or idea of this whole **tuldok** repository came from.
 

@@ -92,6 +92,8 @@ return {
 
         rust_analyzer = {},
 
+        taplo = {},
+
         lua_ls = {
           settings = {
             Lua = {
