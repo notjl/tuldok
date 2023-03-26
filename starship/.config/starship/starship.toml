@@ -147,7 +147,8 @@ style = "fg:#ffffff"
 
 [python]
 symbol = " "
-format = "⏽ [$symbol$version ]($style)"
+format = '⏽ [${symbol}${version}( \[$virtualenv\]) ]($style)'
+# format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 style = "fg:#ffffff"
 
 [rust]

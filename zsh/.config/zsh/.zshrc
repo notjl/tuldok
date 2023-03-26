@@ -75,9 +75,9 @@ alias webcam="mpv /dev/video0"
 # Alias for pomodoro
 # Based on bashbunni's pomodoro for MacOS. Instead of using terminal-notifier, make use of notify-send
 alias work="timer 45m -n 'Work' && notify-send 'Work Timer is up! Take a Break!' -a Pomodoro -i $HOME/Pictures/pomodoro.png \
-        && paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga"
+        ; paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga"
 alias break="timer 10m -n 'Break' && notify-send 'Break Timer is over! Get back to work!' -a Pomodoro -i $HOME/Pictures/pomodoro.png \
-        && paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga"
+        ; paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga"
 
 # Octopus banner every terminal init
 # echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
