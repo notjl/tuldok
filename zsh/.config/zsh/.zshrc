@@ -79,6 +79,39 @@ alias work="timer 45m -n 'Work' && notify-send 'Work Timer is up! Take a Break!'
 alias break="timer 10m -n 'Break' && notify-send 'Break Timer is over! Get back to work!' -a Pomodoro -i $HOME/Pictures/pomodoro.png \
         ; paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga"
 
+# Alias for reattaching and detaching GPU
+# Based on blandman's laptop gpu passthrough guide'
+# alias gpu-status='echo "NVIDIA Dedicated Graphics" | grep "NVIDIA" && lspci -nnk | grep "NVIDIA Corporation TU117M" -A 2 | grep "Kernel driver in use"'
+# function gpu-to-host(){
+#     if lspci -nnk | grep -q "Kernel driver in use: vfio-pci"; then
+#         sudo virsh nodedev-reattach pci_0000_01_00_0 &> /dev/null
+#         sudo rmmod vfio_pci vfio_pci_core vfio_iommu_type1 &> /dev/null
+#         sudo modprobe -i nvidia_modeset nvidia_uvm nvidia_drm nvidia &> /dev/null
+#     fi
+# }
+function gpu-switch() {
+    if lspci -nk | grep -q "Kernel driver in use: nvidia"; then
+        sudo rmmod nvidia_modeset nvidia_uvm nvidia_drm nvidia &> /dev/null
+        echo "dGPU found... detaching..."
+        echo "NVIDIA Drivers removed!"
+        sudo modprobe -i vfio_pci vfio_pci_core vfio_iommu_type1 &> /dev/null
+        echo "VFIO Drivers added!"
+        sudo virsh nodedev-detach pci_0000_01_00_0 &> /dev/null
+        sudo virsh nodedev-detach pci_0000_01_00_1 &> /dev/null
+        echo "dGPU detached!"
+        echo "dGPU is now VFIO ready!"
+    else
+        sudo virsh nodedev-reattach pci_0000_01_00_0 &> /dev/null
+        sudo virsh nodedev-reattach pci_0000_01_00_1 &> /dev/null
+        echo "dGPU not found... attaching..."
+        echo "dGPU Attached!"
+        sudo rmmod vfio_pci vfio_pci_core vfio_iommu_type1 &> /dev/null
+        echo "VFIO Drivers removed!"
+        sudo modprobe -i nvidia_modeset nvidia_uvm nvidia_drm nvidia &> /dev/null
+        echo "NVIDIA Drivers added!"
+        echo "dGPU is now host ready!"
+    fi
+}
 # Octopus banner every terminal init
 # echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
 fastfetch
