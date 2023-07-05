@@ -8,3 +8,4 @@ stow --target=${HOME} kitty
 stow --target=${HOME} btop
 stow --target=${HOME} BetterDiscord
 stow --target=${HOME} MangoHud
+stow --target=${HOME} zellij

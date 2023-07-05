@@ -27,6 +27,8 @@ return {
         }),
 
         formatting.gofmt,
+
+        formatting.rustfmt,
       },
     }
   end,

@@ -6,7 +6,7 @@ It is ever changing and will depend on the whims of tako.
 To start using the dotfiles, install these: [fastfetch](https://github.com/LinusDierheimer/fastfetch), [kitty](https://github.com/kovidgoyal/kitty),
 [neovim](https://github.com/neovim/neovim), [starship](https://github.com/starship/starship), [zsh](https://zsh.sourceforge.io/),
 [MangoHud](https://github.com/flightlessmango/MangoHud), [BetterDiscord](https://github.com/BetterDiscord/BetterDiscord),
-and [btop](https://github.com/aristocratos/btop).
+[zellij](https://github.com/zellij-org/zellij) and [btop](https://github.com/aristocratos/btop).
 
 #### Neovim Requirements
 [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) plugin uses some binaries that it needs in order to run properly. The binaries are: [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/), 
@@ -22,6 +22,21 @@ and [btop](https://github.com/aristocratos/btop).
 
 #### ZSH Requirements
 In order to use `pomodoro` alias, install [timer](https://github.com/caarlos0/timer)
+
+Also, if in a WSL environment, it is required to install [win32yank](https://github.com/equalsraf/win32yank) and [wsl-notify-send](https://github.com/stuartleeks/wsl-notify-send).
+To install both, just do:
+```
+$ curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
+$ unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+$ chmod +x /tmp/win32yank.exe
+$ sudo mv /tmp/win32yank.exe /usr/local/bin/
+```
+```
+$ curl -sLo/tmp/wsl-notify-send_windows_amd64.zip https://github.com/stuartleeks/wsl-notify-send/releases/download/v0.1.871612270/wsl-notify-send_windows_amd64.zip
+$ unzip -p /tmp/wsl-notify-send_windows_amd64.zip wsl-notify-send.exe > /tmp/wsl-notify-send.exe
+$ chmod +x /tmp/wsl-notify-send.exe
+$ sudo mv /tmp/wsl-notify-send.exe /usr/local/bin/
+```
 
 ### Nerd Fonts
 After installing the requirements, configure font family for the terminal emulator [kitty] by downloading a font from [Nerd Fonts](https://www.nerdfonts.com/) (preferably, Ubuntu Mono since kitty is configured to do so).

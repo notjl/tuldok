@@ -30,7 +30,7 @@ $terraform\
 $vagrant\
 $zig\
 $cmd_duration\
-\n╰─$sudoﬦ 
+\n╰─$sudo󰘧 
 """
 
 [directory]
@@ -41,7 +41,7 @@ home_symbol = "󰜥 "
 format = " [$path]($style) "
 
 [directory.substitutions]
-"Documents" = " "
+"Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
