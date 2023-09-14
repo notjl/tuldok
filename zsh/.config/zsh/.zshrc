@@ -72,6 +72,9 @@ alias v='nvim'
 # Alias webcam using mpv and /dev/video0
 alias webcam="mpv /dev/video0"
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 # Alias for pomodoro
 # Based on bashbunni's pomodoro for MacOS. Instead of using terminal-notifier, make use of notify-send
 # alias work="timer 45m -n 'Work' && notify-send 'Work Timer is up! Take a Break!' -a Pomodoro -i $HOME/Pictures/pomodoro.png \
