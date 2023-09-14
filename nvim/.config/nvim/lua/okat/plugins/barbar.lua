@@ -38,5 +38,6 @@ return {
         is_neotree_open()
       end,
     })
+
   end,
 }

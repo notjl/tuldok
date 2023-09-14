@@ -34,25 +34,28 @@ return {
         -- telescope.nvim --
         t = { name = '+Telescope' },
 
+        -- twilight --
+        T = { name = 'Twilight' },
+
         w = { 'Write File' },
 
         q = { name = 'Quit' },
 
         Q = { name = '+Quit', a = { 'Quit All' } },
 
-        ['<S-f>'] = { name = 'Format' },
-      },
+        -- Surround --
+        ['<S-s>'] = {
+          name = '+Surround',
+          a = { 'Add' },
+          d = { 'Delete' },
+          f = { 'Find' },
+          F = { 'Find Left' },
+          h = { 'Highlight' },
+          r = { 'Replace' },
+          n = { 'Update <N> Lines' },
+        },
 
-      -- Surround --
-      ['<C-s>'] = {
-        name = '+Surround',
-        a = { 'Add' },
-        d = { 'Delete' },
-        f = { 'Find' },
-        F = { 'Find Left' },
-        h = { 'Highlight' },
-        r = { 'Replace' },
-        n = { 'Update <N> Lines' },
+        ['<S-f>'] = { name = 'Format' },
       },
     }, { mode = 'n' })
 

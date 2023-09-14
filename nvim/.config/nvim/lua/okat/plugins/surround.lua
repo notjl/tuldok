@@ -8,13 +8,13 @@ return {
 
       highlight_duration = 500,
       mappings = {
-        add = '<C-s>a',
-        delete = '<C-s>d',
-        find = '<C-s>f',
-        find_left = '<C-s>F',
-        highlight = '<C-s>h',
-        replace = '<C-s>r',
-        update_n_lines = '<C-s>n',
+        add = '<LEADER><S-s>a',
+        delete = '<LEADER><S-s>d',
+        find = '<LEADER><S-s>f',
+        find_left = '<LEADER><S-s>F',
+        highlight = '<LEADER><S-s>h',
+        replace = '<LEADER><S-s>r',
+        update_n_lines = '<LEADER><S-s>n',
 
         suffix_last = 'l',
         suffix_next = 'n',

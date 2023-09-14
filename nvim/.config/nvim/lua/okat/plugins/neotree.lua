@@ -71,7 +71,7 @@ return {
             -- Status type
             untracked = '',
             ignored = '',
-            unstaged = '',
+            unstaged = '󰄱',
             staged = '',
             conflict = '',
           },

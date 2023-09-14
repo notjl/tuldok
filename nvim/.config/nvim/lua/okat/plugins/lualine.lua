@@ -281,9 +281,9 @@ return {
     insert_right({
       'diff',
       symbols = {
-        added = ' ',
-        modified = '柳',
-        removed = ' ',
+        added = ' ',
+        modified = ' ',
+        removed = ' ',
       },
       diff_color = {
         added = {
