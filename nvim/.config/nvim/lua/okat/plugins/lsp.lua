@@ -86,6 +86,8 @@ return {
 
         cssls = {},
 
+        tsserver = {},
+
         pylsp = {},
 
         bashls = {},
