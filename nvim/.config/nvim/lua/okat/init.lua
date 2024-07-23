@@ -1,6 +1,7 @@
 -- Declare table for protective calls (safe import) and for atomicity
 local oks = {
   ['VIM Options'] = pcall(require, 'options'),
+  ['VIM Keymap'] = pcall(require, 'keymaps'),
 }
 
 -- Iterate through table and if status is not ok, skip
