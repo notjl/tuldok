@@ -2,6 +2,7 @@
 local oks = {
   ['VIM Options'] = pcall(require, 'options'),
   ['VIM Keymap'] = pcall(require, 'keymaps'),
+  ['VIM AutoCMD'] = pcall(require, 'autocmd')
 }
 
 -- Iterate through table and if status is not ok, skip
