@@ -1,3 +1,6 @@
+# For homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
 # Lines configured by zsh-newuser-install
 HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=10000
@@ -9,8 +12,14 @@ unsetopt beep
 bindkey -v
 
 # ZSH Syntax Highlighting + Autosuggestions
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ $(uname) == "Darwin" ]]; then # MacOS
+	source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+	ZSH_DISABLE_COMPFIX="true"
+else
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Coloured list
 alias ls="ls --color"
