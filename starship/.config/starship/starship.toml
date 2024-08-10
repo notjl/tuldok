@@ -42,23 +42,8 @@ truncation_symbol = ".../"
 home_symbol = "󰜥 "
 format = " [$path]($style) "
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-"Repositories" = "󰳏 "
-"Desktop" = " "
-"Games" = " "
-"Videos" = " "
-".config" = " "
-".cache" = "󰃨 "
-".wine" = "󰡶"
-"tuldok" = ""
-"kaalaman" = " "
-
 [git_branch]
-symbol = "󰘵 "
+symbol = "󰘵"
 style = "fg:#FFFFFF"
 format = "⏽ [$symbol $branch]($style)"
 

@@ -23,6 +23,8 @@ fi
 
 # Coloured list
 alias ls="ls --color"
+alias gl="git log --all --decorate --oneline --graph"
+alias gs="git status"
 
 # Change cursor shape for different vi modes
 function zle-keymap-select {
