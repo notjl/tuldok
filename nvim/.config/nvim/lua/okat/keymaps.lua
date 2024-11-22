@@ -15,7 +15,7 @@ local keybindings = {
     ['<S-s>']       =   ':%s//g<LEFT><LEFT>',
     
     -- Remap Saving --
-    ['<LEADER>w'] = '<CMD>w<CR>',
+    ['<LEADER>w']   =   '<CMD>w<CR>',
 
     -- Remap Quit --
     ['<LEADER>q']   =   '<CMD>q<CR>',	    -- Quit single buffer
@@ -29,7 +29,31 @@ local keybindings = {
     ['-']           =   '<C-x>',
 
     -- Delete a Word Backwards --
-    ['dw']          =   'vb"_d',
+    -- ['dw']          =   'vb"_d',
+
+
+    -- SPLITS --
+
+    -- Split Navigation --
+    ['<C-h>']       =   '<C-w>h',
+    ['<C-j>']       =   '<C-w>j',
+    ['<C-k>']       =   '<C-w>k',
+    ['<C-l>']       =   '<C-w>l',
+
+    -- Split Creation --
+    ['<LEADER>sv']  =   ':vsplit<CR><C-w>w',
+    ['<LEADER>ss']  =   ':split<CR><C-w>w',
+
+    -- Resize Splits --
+    ['<C-S-Up>']    =   '<C-w>+',
+    ['<C-S-Down>']  =   '<C-w>-',
+    ['<C-S-Left>']  =   '<C-w><',
+    ['<C-S-Right>'] =   '<C-w>>',
+
+    -- Buffer Navigation --
+    ['<S-l>']       =   ':bn<CR>',
+    ['<S-h>']       =   ':bp<CR>',
+
 
   },
 

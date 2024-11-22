@@ -1,0 +1,65 @@
+layout {
+    default_tab_template {
+        pane size=2 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "{mode}"
+                format_center   "#[bg=#1e1e2e]{tabs}"
+                // format_right  "{swap_layout}#[bg=#181926,fg=#494d64] Zellij: #[bg=#181926,fg=#494d64]{session} "
+                format_right "#[bg=#1e1e2e,fg=#89dceb]#[bg=#89dceb,fg=#11111b] #[bg=#313244] {session} "
+                format_space  "#[bg=#1e1e2e]"
+                format_hide_on_overlength "true"
+                format_precedence "crl"
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#6C7086]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "true"
+
+                mode_normal        "#[bg=#a6da95,fg=#181926] 󰊪#[bg=#1e1e2e,fg=#a6da95]"
+                mode_locked        "#[bg=#6e738d,fg=#181926,bold] #[bg=#1e1e2e,fg=#6e738d]"
+                mode_resize        "#[bg=#8aadf4,fg=#181926,bold] 󰩨#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_pane          "#[bg=#8aadf4,fg=#181926,bold] #[bg=#1e1e2e,fg=#8aadf4]"
+                mode_tab           "#[bg=#8aadf4,fg=#181926,bold] 󰓩#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_scroll        "#[bg=#8aadf4,fg=#181926,bold] 󱕒#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_enter_search  "#[bg=#8aadf4,fg=#181926,bold] 󱡴#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_search        "#[bg=#8aadf4,fg=#181926,bold] #[bg=#1e1e2e,fg=#8aadf4]"
+                mode_rename_tab    "#[bg=#8aadf4,fg=#181926,bold] 󰑕 󰓩#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_rename_pane   "#[bg=#8aadf4,fg=#181926,bold] 󰑕 #[bg=#1e1e2e,fg=#8aadf4]"
+                mode_session       "#[bg=#8aadf4,fg=#181926,bold] 󱦺#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_move          "#[bg=#8aadf4,fg=#181926,bold] 󰆾#[bg=#1e1e2e,fg=#8aadf4]"
+                mode_prompt        "#[bg=#8aadf4,fg=#181926,bold] #[bg=#1e1e2e,fg=#8aadf4]"
+                mode_tmux          "#[bg=#f5a97f,fg=#181926,bold] #[bg=#1e1e2e,fg=#f5a97f]"
+
+                // formatting for inactive tabs
+                tab_normal              "#[bg=#1e1e2e,fg=#45475a]#[bg=#45475a,fg=#1e1e2e]{index} #[bg=#313244,fg=#1e1e2e] {name}{floating_indicator}#[bg=#1e1e2e,fg=#313244,bold]"
+                tab_normal_fullscreen   "#[bg=#1e1e2e,fg=#45475a]#[bg=#45475a,fg=#1e1e2e]{index} #[bg=#313244,fg=#1e1e2e] {name}{fullscreen_indicator}#[bg=#1e1e2e,fg=#313244,bold]"
+                tab_normal_sync         "#[bg=#1e1e2e,fg=#45475a]#[bg=#45475a,fg=#1e1e2e]{index} #[bg=#313244,fg=#1e1e2e] {name}{sync_indicator}#[bg=#1e1e2e,fg=#313244,bold]"
+
+                // formatting for the current active tab
+                tab_active              "#[bg=#1e1e2e,fg=#89dceb]#[bg=#89dceb,fg=#1e2030,bold]󰘧 #[bg=#363a4f,fg=#89dceb,bold] {name}{floating_indicator}#[bg=#1e1e2e,fg=#363a4f,bold]"
+                tab_active_fullscreen   "#[bg=#1e1e2e,fg=#89dceb]#[bg=#89dceb,fg=#1e2030,bold]󰘧 #[bg=#363a4f,fg=#89dceb,bold] {name}{fullscreen_indicator}#[bg=#1e1e2e,fg=#363a4f,bold]"
+                tab_active_sync         "#[bg=#1e1e2e,fg=#89dceb]#[bg=#89dceb,fg=#1e2030,bold]󰘧 #[bg=#363a4f,fg=#89dceb,bold] {name}{sync_indicator}#[bg=#1e1e2e,fg=#363a4f,bold]"
+
+                // separator between the tabs
+                tab_separator           "#[bg=#1e1e2e] "
+
+                // indicators
+                tab_sync_indicator       " "
+                tab_fullscreen_indicator " 󰊓"
+                tab_floating_indicator   " 󰹙"
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=blue] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+
+                datetime        "#[fg=#6C7086,bold] {format} "
+                datetime_format "%A, %d %b %Y %H:%M"
+                datetime_timezone "Europe/Berlin"
+            }
+        }
+        children
+    }
+}

@@ -30,3 +30,6 @@ lazy.setup({
   },
   -- checker = { enabled = true },
 })
+
+-- Call the colorscheme here instead of using config = function()
+vim.cmd.colorscheme("catppuccin")
