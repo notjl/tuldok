@@ -12,7 +12,7 @@ local keybindings = {
   ['n'] = {
     
     -- Replace "All" Shortcut --
-    ['<S-s>']       =   ':%s//g<LEFT><LEFT>',
+    ['<S-s>']       =   '<CMD>%s//g<LEFT><LEFT>',
     
     -- Remap Saving --
     ['<LEADER>w']   =   '<CMD>w<CR>',
@@ -41,8 +41,8 @@ local keybindings = {
     ['<C-l>']       =   '<C-w>l',
 
     -- Split Creation --
-    ['<LEADER>sv']  =   ':vsplit<CR><C-w>w',
-    ['<LEADER>ss']  =   ':split<CR><C-w>w',
+    ['<LEADER>sv']  =   '<CMD>vsplit<CR><C-w>w',
+    ['<LEADER>ss']  =   '<CMD>split<CR><C-w>w',
 
     -- Resize Splits --
     ['<C-S-Up>']    =   '<C-w>+',
@@ -51,8 +51,8 @@ local keybindings = {
     ['<C-S-Right>'] =   '<C-w>>',
 
     -- Buffer Navigation --
-    ['<S-l>']       =   ':bn<CR>',
-    ['<S-h>']       =   ':bp<CR>',
+    ['<S-l>']       =   '<CMD>bn<CR>',
+    ['<S-h>']       =   '<CMD>bp<CR>',
 
 
   },
@@ -73,17 +73,17 @@ local keybindings = {
     ['>']           =   '>gv',
 
     -- Move Text Up and Down --
-    ['<A-K>']       =   ':m .-2<CR>==',     -- Move Text Down
-    ['<A-J>']       =   ':m .+1<CR>==',     -- Move Text Up
+    ['<C-A-k>']       =   '<CMD>m .-2<CR>==',     -- Move Text Down
+    ['<C-A-j>']       =   '<CMD>m .+1<CR>==',     -- Move Text Up
 
   },
-
+ 
   -- [VISUAL BLOCK] --
   ['x'] = {
 
     -- Move Text Up and Down --
-    ['<A-K>']       =   ":m '<-2<CR>gv-gv",     -- Move Text Down
-    ['<A-J>']       =   ":m '>+1<CR>gv-gv",     -- Move Text Up
+    ['<C-A-k>']       =   "<CMD>m '<-3<CR>gv-gv",     -- Move Text Down
+    ['<C-A-j>']       =   "<CMD>m '>+1<CR>gv-gv",     -- Move Text Up
 
   },
 
