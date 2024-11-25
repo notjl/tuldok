@@ -12,7 +12,7 @@ local keybindings = {
   ['n'] = {
     
     -- Replace "All" Shortcut --
-    ['<S-s>']       =   '<CMD>%s//g<LEFT><LEFT>',
+    ['<S-s>']       =   ':%s//g<LEFT><LEFT>',
     
     -- Remap Saving --
     ['<LEADER>w']   =   '<CMD>w<CR>',
