@@ -54,6 +54,8 @@ local keybindings = {
     ['<S-l>']       =   '<CMD>bn<CR>',
     ['<S-h>']       =   '<CMD>bp<CR>',
 
+    -- Remap Fold Toggle
+    ['<LEADER>z']   =   'za'
 
   },
 

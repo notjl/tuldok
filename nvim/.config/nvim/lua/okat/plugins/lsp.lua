@@ -29,6 +29,13 @@ return {
 
           local capabilities = vim.lsp.protocol.make_client_capabilities()
           capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+          -- UFO Config --
+          capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          }
+
           capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
           require("lspconfig")[server_name].setup({
