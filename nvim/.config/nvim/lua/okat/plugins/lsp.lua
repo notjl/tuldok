@@ -19,7 +19,9 @@ return {
         }
       },
       opts = {
-        ensure_installed = { 'lua_ls' },
+        -- TODO: add css_variables, cssls, css_modules
+        ensure_installed = { 'bashls', 'clangd', 'cssls', 'dockerls', 'gopls',
+        'html', 'ts_ls', 'jsonls', --[[ 'nil_ls' ]] 'ruff', 'rust_analyzer', 'zls'},
         handlers = {
           function(server_name)
             local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -56,7 +58,6 @@ return {
             local opts = require('okat.plugins.lsp_settings.lua_ls')
             lspconfig.lua_ls.setup(opts)
           end,
-
 
         },
       },
