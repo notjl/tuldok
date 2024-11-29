@@ -25,7 +25,7 @@ return {
 
     opts = {
       close_if_last_window = true,
-      window = { position = "right" },
+      window = { position = "left" },
       filesystem = {
         hijack_netrw_behavior = 'disabled',
         filtered_items = { hide_gitignored = false },

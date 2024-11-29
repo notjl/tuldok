@@ -1,7 +1,7 @@
 return {
   'vyfor/cord.nvim',
   build = './build || .\\build',
-  event = 'VeryLazy',
+  event = { 'BufReadPost', 'BufNewFile' },
   opts = {
     editor = { tooltip = 'The Superior Text Editor' },
     text = {

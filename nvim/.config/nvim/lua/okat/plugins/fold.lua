@@ -1,6 +1,7 @@
 return {
-  { 
+  {
     'kevinhwang91/nvim-ufo',
+    event = { 'BufReadPost', 'BufNewFile' },
     dependencies = { 'kevinhwang91/promise-async' },
     init = function()
       vim.o.fcs = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -45,6 +46,7 @@ return {
   },
   {
     'luukvbaal/statuscol.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
     opts = function()
       local builtin = require('statuscol.builtin')
       return {
