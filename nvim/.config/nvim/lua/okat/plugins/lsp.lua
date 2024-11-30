@@ -16,12 +16,9 @@ return {
         {
           'RRethy/vim-illuminate',
           event = 'LspAttach',
-        }
+        },
       },
       opts = {
-        -- TODO: add css_variables, cssls, css_modules
-        ensure_installed = { 'bashls', 'clangd', 'cssls', 'dockerls', 'gopls',
-        'html', 'ts_ls', 'jsonls', --[[ 'nil_ls' ]] 'ruff', 'rust_analyzer', 'zls'},
         handlers = {
           function(server_name)
             local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -45,12 +42,12 @@ return {
 
             capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
-            require("lspconfig")[server_name].setup({
+            require('lspconfig')[server_name].setup({
               capabilities = capabilities,
               on_attach = function(client, bufnr)
                 illuminate.on_attach(client)
               end,
-          })
+            })
           end,
 
           ['lua_ls'] = function()
@@ -58,7 +55,6 @@ return {
             local opts = require('okat.plugins.lsp_settings.lua_ls')
             lspconfig.lua_ls.setup(opts)
           end,
-
         },
       },
     },
@@ -84,4 +80,68 @@ return {
     opts = {},
   },
 
+  {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    opts = {
+      ensure_installed = {
+        -- For LSP
+        -- TODO: add css_variables, cssls, css_modules
+
+        'bashls',
+        'clangd',
+        'cssls',
+        'dockerls',
+        'gopls',
+        'lua_ls',
+        'html',
+        'ts_ls',
+        'jsonls',
+        -- 'nil_ls'
+        'ruff',
+        'rust_analyzer',
+        'zls',
+
+        -- For Formatting / conform.nvim
+        'clang-format',
+        'gofumpt',
+        'goimports-reviser',
+        'golines',
+        'prettierd',
+        'stylua',
+      },
+    },
+  },
+
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        py = { 'ruff' },
+        go = { 'gofumpt', 'goimports-reviser', 'golines' },
+        js = { 'prettierd' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+        h = { 'clang-format' },
+      },
+      format_on_save = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+        lsp_format = 'fallback',
+      },
+    },
+    config = function(_, opts)
+      require('conform').setup(opts)
+      require('conform').formatters.stylua = {
+        prepend_args = {
+          '--indent-type',
+          'Spaces',
+          '--indent-width',
+          '2',
+          '--quote-style',
+          'AutoPreferSingle',
+        },
+      }
+    end,
+  },
 }
