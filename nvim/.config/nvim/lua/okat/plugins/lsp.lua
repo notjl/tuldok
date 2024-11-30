@@ -108,6 +108,14 @@ return {
         'golines',
         'prettierd',
         'stylua',
+
+        -- For Linting / nvim-lint
+        'bacon',
+        'cpplint',
+        'eslint_d',
+        'nilaway',
+        'revive',
+        -- 'selene',
       },
     },
   },
@@ -142,6 +150,28 @@ return {
           'AutoPreferSingle',
         },
       }
+    end,
+  },
+
+  {
+    'mfussenegger/nvim-lint',
+    opts = {
+      rs = { 'bacon' },
+      c = { 'cpplint' },
+      cpp = { 'cpplint' },
+      h = { 'cpplint' },
+      js = { 'eslint_d' },
+      ts = { 'eslint_d' },
+      go = { 'nilaway', 'revive' },
+      -- lua = { 'selene' },
+    },
+    config = function(_, opts)
+      require('lint').linters_by_ft = opts
+      vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+        callback = function()
+          require('lint').try_lint()
+        end,
+      })
     end,
   },
 }

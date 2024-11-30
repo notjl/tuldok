@@ -220,21 +220,60 @@ return {
 
     insert_left({
       function()
-        local message = 'No Active LSP'
-        -- local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-        local buf_ft =  vim.api.nvim_get_option_value('filetype', { buf = 0 })
-        local clients = vim.lsp.get_clients()
-
-        if next(clients) == nil then
-          return message
+        -- Based on https://github.com/dgox16/dotfiles/blob/909da9303444d16dcd94ee6eafa3b1428812b0e0/.config/nvim/lua/plugins/lualine.lua#L123
+        local buf_clients = vim.lsp.get_clients()
+        local buf_ft = vim.bo.filetype
+        if next(buf_clients) == nil then
+          return 'No Active LSP'
         end
-        for _, client in ipairs(clients) do
+        local buf_client_names = {}
+
+        for _, client in pairs(buf_clients) do
           local filetypes = client.config.filetypes
           if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-            return client.name
+            table.insert(buf_client_names, client.name)
           end
         end
-        return message
+
+        local lint_s, lint = pcall(require, 'lint')
+        if lint_s then
+          for ft_k, ft_v in pairs(lint.linters_by_ft) do
+            if type(ft_v) == 'table' then
+              for _, linter in ipairs(ft_v) do
+                if buf_ft == ft_k then
+                  table.insert(buf_client_names, linter)
+                end
+              end
+            elseif type(ft_v) == 'string' then
+              if buf_ft == ft_k then
+                table.insert(buf_client_names, ft_v)
+              end
+            end
+          end
+        end
+
+        local ok, conform = pcall(require, 'conform')
+        local formatters = table.concat(conform.formatters_by_ft[vim.bo.filetype], ' ')
+        if ok then
+          for formatter in formatters:gmatch('%w+') do
+            if formatter ~= 'format' then
+              table.insert(buf_client_names, formatter)
+            end
+          end
+        end
+
+        local hash = {}
+        local unique_client_names = {}
+
+        for _, v in ipairs(buf_client_names) do
+          if not hash[v] then
+            unique_client_names[#unique_client_names + 1] = v
+            hash[v] = true
+          end
+        end
+        local language_servers = table.concat(unique_client_names, ', ')
+
+        return language_servers
       end,
       icon = ' ',
       color = {
