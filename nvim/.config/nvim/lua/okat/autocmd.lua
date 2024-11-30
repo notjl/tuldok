@@ -37,6 +37,22 @@ autocmd({
 })
 
 autocmd({
+  'BufEnter',
+  'BufLeave',
+}, {
+  desc = 'Set <LEADER>q to buffer delete and quit NeoVim',
+  pattern = '*',
+  callback = function()
+    if vim.api.nvim_get_option_value('filetype', { buf = 0 }) == '' then
+      vim.api.nvim_set_keymap("n", "<Leader>q", ":q<CR>", { noremap = true, silent = true })
+    else
+      vim.api.nvim_set_keymap("n", "<Leader>q", ":bd<CR>", { noremap = true, silent = true })
+    end
+  end,
+})
+
+
+autocmd({
   'FileType',
 }, {
   pattern = 'lua',
