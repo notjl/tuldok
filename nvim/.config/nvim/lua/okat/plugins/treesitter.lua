@@ -24,7 +24,7 @@ return {
         'rust',
         'sql',
         'markdown',
-        'markdown_inline'
+        'markdown_inline',
       },
       sync_install = false,
       ignore_install = { '' },
@@ -37,7 +37,7 @@ return {
         enable = false,
         disable = {
           'yaml',
-        }
+        },
       },
       illuminate = {
         enable = false,
@@ -48,8 +48,20 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-context',
     event = { 'BufReadPost', 'BufNewFile' },
-    keys = { { '<LEADER>[c', function() require("treesitter-context").go_to_context(vim.v.count1) end, mode = 'n', desc = 'Jump to Context' } },
-    opts = true,
+    keys = {
+      {
+        '<LEADER>[c',
+        function()
+          require('treesitter-context').go_to_context(vim.v.count1)
+        end,
+        mode = 'n',
+        desc = 'Jump to Context',
+      },
+    },
+    opts = {
+      max_lines = 1,
+      min_window_height = 1,
+    },
   },
 
   {
