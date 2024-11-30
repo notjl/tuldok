@@ -7,7 +7,11 @@ return {
       { '<LEADER>Tx', '<CMD>Trouble diagnostics toggle<CR>', desc = 'Toggle Trouble Diagnostic' },
       { '<LEADER>TX', '<CMD>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Toggle Trouble Buffer Diagnostics' },
       { '<LEADER>Ts', '<CMD>Trouble symbols toggle focus=false<CR>', desc = 'Toggle Trouble Symbols' },
-      { '<LEADER>Tl', '<CMD>Trouble lsp toggle focus=false win.position=right<CR>', desc = 'Toggle Trouble LSP definitions / references / ...' },
+      {
+        '<LEADER>Tl',
+        '<CMD>Trouble lsp toggle focus=false win.position=right<CR>',
+        desc = 'Toggle Trouble LSP definitions / references / ...',
+      },
       { '<LEADER>TL', '<CMD>Trouble loclist toggle<CR>', desc = 'Toggle Trouble Location List' },
       { '<LEADER>TQ', '<CMD>Trouble qflist toggle<CR>', desc = 'Toggle Trouble Quickfix List' },
     },
@@ -17,6 +21,7 @@ return {
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     event = 'LspAttach',
+    keys = { { '<LEADER>ll', '<CMD>lua require("lsp_lines").toggle()<CR>', desc = 'Toggle LSP Lines' } },
     opts = {},
-  }
+  },
 }

@@ -21,13 +21,13 @@ return {
       opts = {
         handlers = {
           function(server_name)
-            local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-            if not status_ok then
+            local lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+            if not lsp_ok then
               return
             end
 
-            local status_ok, illuminate = pcall(require, 'illuminate')
-            if not status_ok then
+            local illum_ok, illuminate = pcall(require, 'illuminate')
+            if not illum_ok then
               return
             end
 

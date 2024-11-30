@@ -42,7 +42,7 @@ M.setup = function()
         [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
         [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
       },
-    }
+    },
   }
 
   vim.diagnostic.config(config)
