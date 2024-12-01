@@ -21,7 +21,8 @@ return {
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     event = 'LspAttach',
-    keys = { { '<LEADER>ll', '<CMD>lua require("lsp_lines").toggle()<CR>', desc = 'Toggle LSP Lines' } },
+    -- stylua: ignore
+    keys = { { '<LEADER>ll', function() require("lsp_lines").toggle() end, desc = 'Toggle LSP Lines' } },
     opts = {},
   },
 }
