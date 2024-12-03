@@ -98,6 +98,20 @@ return {
 
       { '<LEADER>ee', group = 'File Explorer', desc = 'Toggle Neotree' },
 
+      { '<LEADER>d', group = 'DAP' },
+      { '<LEADER>db', desc = 'Toggle Breakpoint' },
+      { '<LEADER>dB', desc = 'Toggle Breakpoint' },
+      { '<LEADER>dr', desc = 'Toggle REPL' },
+      { '<LEADER>dc', desc = 'Continue' },
+      { '<LEADER>dt', desc = 'Terminate' },
+      { '<LEADER>dd', desc = 'Disconnect' },
+      { '<LEADER>dT', desc = 'Toggle UI' },
+
+      { '<LEADER>ds', group = 'Step' },
+      { '<LEADER>dso', desc = 'Over' },
+      { '<LEADER>dsO', desc = 'Out' },
+      { '<LEADER>dsi', desc = 'Into' },
+
     })
   end,
 }

@@ -55,6 +55,11 @@ return {
             local opts = require('okat.plugins.lsp_settings.lua_ls')
             lspconfig.lua_ls.setup(opts)
           end,
+
+          -- ['ruff'] = function()
+          --   local lspconfig = require('lspconfig')
+          --   lspconfig.ruff.setup()
+          -- end,
         },
       },
     },
@@ -88,6 +93,7 @@ return {
         -- For LSP
         -- TODO: add css_variables, cssls, css_modules
 
+        'basedpyright',
         'bashls',
         'clangd',
         'cssls',
@@ -117,6 +123,11 @@ return {
         'nilaway',
         'revive',
         -- 'selene',
+
+        -- For DAP / nvim-dap
+        'cpptools',
+        'debugpy',
+        'delve',
       },
     },
   },
@@ -164,10 +175,14 @@ return {
       js = { 'eslint_d' },
       ts = { 'eslint_d' },
       go = { 'nilaway', 'revive' },
+      py = { 'ruff' },
       -- lua = { 'selene' },
     },
     config = function(_, opts)
       require('lint').linters_by_ft = opts
+      require('lint').linters.cpplint = {
+        args = { '--filter=-legal/copyright' },
+      }
       vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
         callback = function()
           require('lint').try_lint()

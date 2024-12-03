@@ -228,11 +228,15 @@ return {
         end
         local buf_client_names = {}
 
-        for _, client in pairs(buf_clients) do
-          local filetypes = client.config.filetypes
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-            table.insert(buf_client_names, client.name)
+        if buf_ft ~= 'python' then
+          for _, client in pairs(buf_clients) do
+            local filetypes = client.config.filetypes
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+              table.insert(buf_client_names, client.name)
+            end
           end
+        else
+          return buf_clients[1].name
         end
 
         local lint_s, lint = pcall(require, 'lint')
