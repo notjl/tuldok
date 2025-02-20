@@ -9,14 +9,14 @@ autocmd({
   'InsertLeave',
   'WinEnter',
 }, {
-    desc = 'Turn on relative number when entering buffer.',
-    pattern = '*',
-    group = numbertogglegroup,
-    callback = function()
-      if vim.o.nu and get_mode().node ~= 'i' then
-          vim.opt['rnu'] = true
-      end
-    end,
+  desc = 'Turn on relative number when entering buffer.',
+  pattern = '*',
+  group = numbertogglegroup,
+  callback = function()
+    if vim.o.nu and get_mode().node ~= 'i' then
+      vim.opt['rnu'] = true
+    end
+  end,
 })
 
 autocmd({
@@ -44,13 +44,12 @@ autocmd({
   pattern = '*',
   callback = function()
     if vim.api.nvim_get_option_value('filetype', { buf = 0 }) == '' then
-      vim.api.nvim_set_keymap("n", "<Leader>q", ":q<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true })
     else
-      vim.api.nvim_set_keymap("n", "<Leader>q", ":bd<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<Leader>q', ':bd<CR>', { noremap = true, silent = true })
     end
   end,
 })
-
 
 autocmd({
   'FileType',
@@ -64,3 +63,16 @@ autocmd({
   end,
 })
 
+autocmd({
+  'BufEnter',
+  'BufNewFile',
+  'BufWinEnter',
+}, {
+  pattern = { '*.md' },
+  desc = 'Set MD filetypes to wrap text',
+  callback = function()
+    vim.opt.wrap = true
+    vim.opt.tw = 80
+    vim.opt.wm = 80
+  end,
+})

@@ -159,8 +159,8 @@ def draw_tab(
     clock = datetime.now().strftime(" %H:%M")
     date = datetime.now().strftime(" %d.%m.%Y")
     cells = get_battery_cells()
-    cells.append((CLOCK_COLOR, clock))
-    cells.append((DATE_COLOR, date))
+    # cells.append((CLOCK_COLOR, clock))
+    # cells.append((DATE_COLOR, date))
     cells.append((as_rgb(0xCBA6F7), " "))
     right_status_length = RIGHT_MARGIN
     for cell in cells:

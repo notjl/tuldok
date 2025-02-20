@@ -16,7 +16,7 @@ return {
       dependencies = { 'rafamadriz/friendly-snippets' },
       config = function()
         require('luasnip.loaders.from_vscode').lazy_load()
-      end
+      end,
     },
     'saadparwaiz1/cmp_luasnip',
   },
@@ -108,6 +108,7 @@ return {
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'render-markdown' },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

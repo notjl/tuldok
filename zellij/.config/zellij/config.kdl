@@ -4,14 +4,13 @@ plugins {
     // Define the "autolock" plugin.
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
         // Lock when any open these programs open.
-        triggers "vim|git|fzf|zoxide|atuin"
+        triggers "nvim|vim|git|fzf|zoxide|atuin"
         // Reaction to input occurs after this many seconds. (default=0.3)
         // (An existing scheduled reaction prevents additional reactions.)
         reaction_seconds "0.3"
         // Print to Zellij log? (default=false)
         print_to_log true
     }
-    //...
 }
 
 load_plugins {
@@ -20,19 +19,30 @@ load_plugins {
 
 keybinds clear-defaults=true {
     normal {
-        bind "Enter" {
+        bind "Ctrl Alt l" {
             WriteChars "\u{000D}";
             MessagePlugin "autolock" {};
         }
         bind "Ctrl Alt z" { SwitchToMode "Locked"; }
     }
     locked {
-        bind "Ctrl Alt z" { SwitchToMode "Normal"; }
+        bind "Ctrl Alt z" {
+
+            MessagePlugin "autolock" {payload "disable";};
+
+            SwitchToMode "Normal";
+        }
+    }
+    shared {
+        bind "Alt Shift z" {
+            MessagePlugin "autolock" {payload "enable";};
+        }
     }
     pane {
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
+        bind "a" { ToggleFloatingPanes; }
         bind "p" { SwitchFocus; }
         bind "n" { NewPane; }
         bind "x" { CloseFocus; }
@@ -130,7 +140,10 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" {
         bind "Ctrl Alt q" { Quit; }
-        bind "Ctrl Alt z" { SwitchToMode "Locked"; }
+        bind "Ctrl Alt z" {
+            MessagePlugin "autolock" {payload "disable";};
+            SwitchToMode "Locked";
+        }
         bind "Ctrl i" { MoveTab "Left"; }
         bind "Ctrl o" { MoveTab "Right"; }
         bind "Ctrl h" { MoveFocusOrTab "Left"; }

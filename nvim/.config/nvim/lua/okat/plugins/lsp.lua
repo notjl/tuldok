@@ -93,19 +93,21 @@ return {
         -- For LSP
         -- TODO: add css_variables, cssls, css_modules
 
+        'angularls',
         'basedpyright',
         'bashls',
         'clangd',
-        'cssls',
+        -- 'cssls',
         'dockerls',
         'gopls',
         'lua_ls',
         'html',
         'ts_ls',
         'jsonls',
-        -- 'nil_ls'
+        'nil_ls',
         'ruff',
         'rust_analyzer',
+        'tailwindcss',
         'zls',
 
         -- For Formatting / conform.nvim
@@ -125,6 +127,7 @@ return {
         -- 'selene',
 
         -- For DAP / nvim-dap
+        'chrome-debug-adapter',
         'cpptools',
         'debugpy',
         'delve',
@@ -180,9 +183,15 @@ return {
     },
     config = function(_, opts)
       require('lint').linters_by_ft = opts
-      require('lint').linters.cpplint = {
-        args = { '--filter=-legal/copyright' },
+      local cpplint = require('lint').linters.cpplint
+      cpplint.args = {
+        '--filter=-legal/copyright',
       }
+      -- require('lint').linters.cpplint = {
+      --   args = { '--filter=-legal/copyright' },
+      --   cmd = 'linter_cmd',
+      --   parser = require('lint.parser').from_errorformat(),
+      -- }
       vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
         callback = function()
           require('lint').try_lint()

@@ -1,5 +1,7 @@
 # For homebrew
 export PATH=/opt/homebrew/bin:$PATH
+export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
+
 
 # Lines configured by zsh-newuser-install
 HISTFILE="$XDG_STATE_HOME"/zsh/history
@@ -80,6 +82,27 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 
+# Alias bat to cat
+alias oldcat='\cat'
+alias cat='bat'
+
+# Alias eza to ls
+alias oldls='\ls'
+alias ls='eza --icons=always'
+
+# Alias dust to du
+# alias olddu ='/usr/bin/du'
+# alias du ='dust'
+
+# Alias fd to find
+# alias oldfind ='find'
+# alias find ='fd'
+
+# Alias rg to grep
+# alias oldgrep ='\grep'
+# alias grep ='rg'
+
+
 # Alias webcam using mpv and /dev/video0
 alias webcam="mpv /dev/video0"
 
@@ -149,7 +172,24 @@ function gpu-switch() {
         echo "dGPU is now host ready!"
     fi
 }
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+alias mupdf="nohup mupdf-gl &"
+
+eval "$(zoxide init zsh)"
+
 # Octopus banner every terminal init
 # echo "$(cat $ZDOTDIR/tako_banner)" | lolcat
 fastfetch
 # eval "$(zellij setup --generate-auto-start zsh)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
