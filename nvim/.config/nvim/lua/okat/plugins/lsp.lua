@@ -56,10 +56,24 @@ return {
             lspconfig.lua_ls.setup(opts)
           end,
 
-          -- ['ruff'] = function()
-          --   local lspconfig = require('lspconfig')
-          --   lspconfig.ruff.setup()
-          -- end,
+          ['ruff'] = function()
+            local lspconfig = require('lspconfig')
+            lspconfig.ruff.setup({
+              init_options = {
+                settings = {
+                  -- Modification to any of these settings has no effect.
+                  enable = true,
+                  ignoreStandardLibrary = true,
+                  organizeImports = true,
+                  fixAll = true,
+                  lint = {
+                    enable = true,
+                    run = 'onType',
+                  },
+                },
+              },
+            })
+          end,
         },
       },
     },

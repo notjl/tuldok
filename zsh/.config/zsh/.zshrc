@@ -1,6 +1,7 @@
 # For homebrew
 export PATH=/opt/homebrew/bin:$PATH
 export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
+export Path="$HOME/bin:$PATH"
 
 
 # Lines configured by zsh-newuser-install
@@ -76,7 +77,7 @@ alias icat="kitty +kitten icat"
 alias d="kitty +kitten diff"
 alias differ="git difftool --no-symlinks --dir-diff"
 
-# Alias neovim to old vim
+# Alias neovim$ to old vim
 alias oldvim='\vim'
 alias vim='nvim'
 alias vi='nvim'
