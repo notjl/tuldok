@@ -3,7 +3,7 @@ return {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
-      require('okat.plugins.lsp_settings.lsp_handler').setup()
+      require('config.plugins.lsp_settings.lsp_handler').setup()
     end,
 
     dependencies = {
@@ -52,7 +52,7 @@ return {
 
           ['lua_ls'] = function()
             local lspconfig = require('lspconfig')
-            local opts = require('okat.plugins.lsp_settings.lua_ls')
+            local opts = require('config.plugins.lsp_settings.lua_ls')
             lspconfig.lua_ls.setup(opts)
           end,
 

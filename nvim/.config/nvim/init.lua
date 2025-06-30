@@ -1,1 +1,1 @@
-require "okat"
+require "config"

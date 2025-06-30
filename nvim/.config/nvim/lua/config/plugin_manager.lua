@@ -25,7 +25,7 @@ lazy.setup({
   spec = {
 
     -- Import your plugins
-    { import = "okat.plugins" },
+    { import = "config.plugins" },
 
   },
   -- checker = { enabled = true },

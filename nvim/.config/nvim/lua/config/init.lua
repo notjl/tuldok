@@ -1,9 +1,9 @@
 -- Declare table for protective calls (safe import) and for atomicity
 local oks = {
-  ['VIM Options'] = pcall(require, 'okat.options'),
-  ['VIM Keymap'] = pcall(require, 'okat.keymaps'),
-  ['VIM AutoCMD'] = pcall(require, 'okat.autocmd'),
-  ['Plugins'] = pcall(require, 'okat.plugin_manager')
+  ['VIM Options'] = pcall(require, 'config.options'),
+  ['VIM Keymap'] = pcall(require, 'config.keymaps'),
+  ['VIM AutoCMD'] = pcall(require, 'config.autocmd'),
+  ['Plugins'] = pcall(require, 'config.plugin_manager')
 }
 
 -- Iterate through table and if status is not ok, skip
