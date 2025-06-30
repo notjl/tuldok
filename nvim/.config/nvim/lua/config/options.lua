@@ -1,59 +1,47 @@
 local opt = vim.opt
 
-local opts = {
-  hls = false,
-  is = true,
-  ts = 4,
-  sw = 4,
-  sts = 4,
-  et = true,
-  ai = true,
-  fenc = 'utf-8',
-  enc = 'utf-8',
-  nu = true,
-  ic = true,
-  wrap = false,
-  cb = 'unnamedplus',
-  lcs = 'tab:> ,eol:↴,extends:>,precedes:<',
-  list = true,
-  cul = true,
-  cc = '80',
-  so = 10,
-  eb = false,
-  swf = false,
-  bk = false,
-  udir = os.getenv('HOME') .. '/undodir',
-  udf = true,
-  scl = 'yes',
-  cot = { 'menuone', 'noselect'},
-  mouse = 'a',
-  ph = 10,
-  stal = 2,
-  scs = true,
-  si = true,
-  sb = true,
-  spr = true,
-  tgc = true,
-  ut = 300,
-  tm = 300,
-  to = true,
-  title = true,
-  wb = false,
-  wim = 'longest,list,full',
-  cmdheight = 1,
-}
+-- Set all options directly on vim.opt
+opt.hls = false
+opt.is = true
+opt.ts = 4
+opt.sw = 4
+opt.sts = 4
+opt.et = true
+opt.ai = true
+opt.fenc = 'utf-8'
+opt.enc = 'utf-8'
+opt.nu = true
+opt.ic = true
+opt.wrap = false
+opt.cb = 'unnamedplus'
+opt.lcs = 'tab:> ,eol:↴,extends:>,precedes:<'
+opt.list = true
+opt.cul = true
+opt.cc = '80'
+opt.so = 10
+opt.eb = false
+opt.swf = false
+opt.bk = false
+opt.udir = os.getenv('HOME') .. '/undodir'
+opt.udf = true
+opt.scl = 'yes'
+opt.cot = { 'menuone', 'noselect' }
+opt.mouse = 'a'
+opt.ph = 10
+opt.stal = 2
+opt.scs = true
+opt.si = true
+opt.sb = true
+opt.spr = true
+opt.tgc = true
+opt.ut = 300
+opt.tm = 300
+opt.to = true
+opt.title = true
+opt.wb = false
+opt.wim = 'longest,list,full'
+opt.cmdheight = 1
 
-local to_append = {
-  isk = '-',
-  shm = 'c',
-}
-
--- Set option that needs append using an iterator
-for key, value in pairs(to_append) do
-  opt[key]:append(value)
-end
-
--- Set option using an iterator
-for key, value in pairs(opts) do
-  opt[key] = value
-end
+-- Options that need appending
+opt.isk:append('-')
+opt.shm:append('c')

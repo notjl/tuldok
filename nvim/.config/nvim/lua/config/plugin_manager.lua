@@ -25,7 +25,7 @@ lazy.setup({
   spec = {
 
     -- Import your plugins
-    { import = "config.plugins" },
+    { import = "plugins" },
 
   },
   -- checker = { enabled = true },
