@@ -1,6 +1,7 @@
 ---@diagnostic disable: empty-block, unbalanced-assignments
 local oks = {
   ['Lazy'] = pcall(require, 'core.lazy'),
+  -- ['Mason Path'] = pcall(require, 'core.mason_path'),
   -- ['LSP'] = pcall(require, 'core.lsp'),
 }
 

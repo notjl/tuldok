@@ -223,20 +223,18 @@ return {
         -- Based on https://github.com/dgox16/dotfiles/blob/909da9303444d16dcd94ee6eafa3b1428812b0e0/.config/nvim/lua/plugins/lualine.lua#L123
         local buf_clients = vim.lsp.get_clients()
         local buf_ft = vim.bo.filetype
+
         if next(buf_clients) == nil then
           return 'No Active LSP'
         end
+
         local buf_client_names = {}
 
-        if buf_ft ~= 'python' then
-          for _, client in pairs(buf_clients) do
-            local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-              table.insert(buf_client_names, client.name)
-            end
+        for _, client in pairs(buf_clients) do
+          local filetypes = client.config.filetypes
+          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            table.insert(buf_client_names, client.name)
           end
-        else
-          return buf_clients[1].name
         end
 
         local lint_s, lint = pcall(require, 'lint')
@@ -257,13 +255,13 @@ return {
         end
 
         local ok, conform = pcall(require, 'conform')
-        local formatters = table.concat(conform.formatters_by_ft[vim.bo.filetype], ' ')
         if ok then
-          for formatter in formatters:gmatch('%w+') do
-            if formatter ~= 'format' then
-              table.insert(buf_client_names, formatter)
+          local formatters = table.concat(conform.formatters_by_ft[vim.bo.filetype], ' ')
+            for formatter in formatters:gmatch('%w+') do
+              if formatter ~= 'format' then
+                table.insert(buf_client_names, formatter)
+              end
             end
-          end
         end
 
         local hash = {}

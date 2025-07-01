@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  event = { 'InsertEnter' },
+  event = { 'CmdLineEnter', 'InsertEnter' },
   version = '*',
   dependencies = {
     'onsails/lspkind.nvim',
@@ -24,12 +24,25 @@ return {
 
     fuzzy = { implementation = "prefer_rust_with_warning" },
 
-    signature = { enabled = true },
+    signature = {
+      enabled = false,
+      window = {
+        border = 'rounded',
+        scrollbar = false
+      }
+    },
 
     snippets = { preset = 'luasnip' },
 
     sources = {
-      default = { 'lsp', 'snippets', 'buffer', 'path',  },
+      default = { 'lazydev', 'lsp', 'snippets', 'buffer', 'path',  },
+      providers = {
+        lazydev = {
+          name = "LazyDev",
+          module = 'lazydev.integrations.blink',
+          score_offset = 100,
+        },
+      },
     },
 
     appearance = {
@@ -102,7 +115,7 @@ return {
 
       ['<C-k>'] = { 'select_prev', 'fallback' },
       ['<C-j>'] = { 'select_next', 'fallback' },
-      ['<C-b>'] = { function(cmp) cmp.scroll_documentation_up(1) end, 'fallback' },
+      ['<C-r>'] = { function(cmp) cmp.scroll_documentation_up(1) end, 'fallback' },
       ['<C-f>'] = { function(cmp) cmp.scroll_documentation_down(1) end, 'fallback' },
       ['<A-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'cancel', 'fallback' },
