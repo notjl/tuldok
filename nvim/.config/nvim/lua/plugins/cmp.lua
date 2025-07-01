@@ -25,7 +25,7 @@ return {
     fuzzy = { implementation = "prefer_rust_with_warning" },
 
     signature = {
-      enabled = false,
+      enabled = true,
       window = {
         border = 'rounded',
         scrollbar = false
@@ -132,7 +132,7 @@ return {
     },
 
     cmdline = {
-      keymap = { preset = 'inherit' },
+      keymap = { preset = 'default' },
       completion = {
         menu = { auto_show = true },
         ghost_text = { enabled = true },
