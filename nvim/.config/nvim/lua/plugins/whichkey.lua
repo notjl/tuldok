@@ -1,3 +1,4 @@
+-- [TODO fix keymaps]
 return {
   'folke/which-key.nvim',
   event = { 'BufReadPost', 'BufNewFile' },

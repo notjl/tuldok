@@ -1,137 +1,130 @@
 return {
-  'hrsh7th/nvim-cmp',
-  event = { 'BufReadPost', 'BufNewFile' },
+  'saghen/blink.cmp',
+  event = { 'InsertEnter' },
+  version = '*',
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    'lukas-reineke/cmp-under-comparator',
     'onsails/lspkind.nvim',
     {
       'L3MON4D3/LuaSnip',
       version = 'v2.*',
-      dependencies = { 'rafamadriz/friendly-snippets' },
+      dependencies = {
+        'rafamadriz/friendly-snippets',
+        "stevearc/vim-vscode-snippets",
+      },
       config = function()
         require('luasnip.loaders.from_vscode').lazy_load()
-      end,
+      end
     },
-    'saadparwaiz1/cmp_luasnip',
   },
-  opts = function()
-    local cmp_ok, cmp = pcall(require, 'cmp')
-    if not cmp_ok then
-      return
-    end
 
-    local snip_ok, luasnip = pcall(require, 'luasnip')
-    if not snip_ok then
-      return
-    end
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    keymap = { preset = 'default' },
 
-    local check_backspace = function()
-      local col = vim.fn.col('.') - 1
-      return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
-    end
+    fuzzy = { implementation = "prefer_rust_with_warning" },
 
-    -- cmp.setup {
-    return {
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body) -- For "luasnip" users.
+    signature = { enabled = true },
+
+    snippets = { preset = 'luasnip' },
+
+    sources = {
+      default = { 'lsp', 'snippets', 'buffer', 'path',  },
+    },
+
+    appearance = {
+      nerd_font_variant = 'normal'
+    },
+
+    completion = {
+      keyword = { range = 'full' },
+
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = true,
+        }
+      },
+
+      documentation = {
+        auto_show = true,
+        window = {
+          border = 'rounded',
+        }
+      },
+
+      menu = {
+        border = 'rounded',
+        draw = {
+          columns = {
+              { "label" }, { "kind_icon", "kind" }, { "source_name" },
+          },
+          components = {
+            label = {
+                text = function(ctx)
+                    return ctx.label
+                end,
+                highlight = "CmpItemAbbr",
+            },
+
+            kind_icon = {
+                text = function(ctx)
+                    local kind = require("lspkind").symbol_map[ctx.kind] or ""
+                    return kind .. " "
+                end,
+                highlight = "CmpItemKind",
+            },
+
+            kind = {
+                text = function(ctx)
+                    return ctx.kind
+                end,
+                highlight = "CmpItemKind",
+            },
+
+            source_name = {
+              text = function(ctx)
+                return string.format("[%s]", ctx.source_name)
+              end
+            }
+          },
+        },
+      }
+    },
+
+    keymap = {
+      preset = 'default',
+
+      ['<C-y>'] = false,
+      ['<C-Space>'] = false,
+      ['<C-p>'] = false,
+      ['<C-n>'] = false,
+
+      ['<C-k>'] = { 'select_prev', 'fallback' },
+      ['<C-j>'] = { 'select_next', 'fallback' },
+      ['<C-b>'] = { function(cmp) cmp.scroll_documentation_up(1) end, 'fallback' },
+      ['<C-f>'] = { function(cmp) cmp.scroll_documentation_down(1) end, 'fallback' },
+      ['<A-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<C-e>'] = { 'cancel', 'fallback' },
+      ['<CR>'] = { 'accept', 'fallback' },
+      ['<Tab>'] = {
+        function(cmp)
+          if cmp.snippet_active() then return cmp.accept()
+          else return cmp.select_and_accept() end
         end,
+        'snippet_forward',
+        'fallback',
       },
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+    },
 
-      mapping = {
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
-        ['<A-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-y>'] = cmp.config.disable, -- Specify "cmp.config.disable" if you want to remove the default "<C-y>" mapping
-        ['<C-e>'] = cmp.mapping({
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
-        }),
-        -- Accept currently selected item. if none selected, "select" first item.
-        -- Set "select" to "false" to only confirm explicitly selected items.
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expandable() then
-            luasnip.expand()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          elseif check_backspace() then
-            fallback()
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-      },
-
-      formatting = {
-        fields = { 'abbr', 'kind', 'menu' },
-        format = require('lspkind').cmp_format({
-          mode = 'symbol_text',
-          preset = 'codicons',
-          maxwidth = 50,
-          ellipsis_char = '...',
-          before = function(entry, vim_item)
-            vim_item.menu = ({
-              nvim_lsp = '[LSP]',
-              nvim_lua = '[NVIM LUA]',
-              luasnip = '[Snippet]',
-              buffer = '[Buffer]',
-              path = '[Path]',
-            })[entry.source.name]
-            return vim_item
-          end,
-        }),
-      },
-      sources = {
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'luasnip' },
-        { name = 'buffer' },
-        { name = 'path' },
-        { name = 'render-markdown' },
-      },
-      confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-      },
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
-      experimental = {
-        ghost_text = false,
-        native_menu = false,
-      },
-      comparators = {
-        cmp.config.compare.offset,
-        cmp.config.compare.exact,
-        cmp.config.compare.score,
-        require('cmp-under-comparator').under,
-        cmp.config.compare.kind,
-        cmp.config.compare.sort_text,
-        cmp.config.compare.length,
-        cmp.config.compare.order,
-      },
-    }
-  end,
+    cmdline = {
+      keymap = { preset = 'inherit' },
+      completion = {
+        menu = { auto_show = true },
+        ghost_text = { enabled = true },
+    },
+    },
+  },
+  opts_extend = { "sources.default" }
 }
