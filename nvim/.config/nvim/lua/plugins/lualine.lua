@@ -257,11 +257,11 @@ return {
         local ok, conform = pcall(require, 'conform')
         if ok then
           local formatters = table.concat(conform.formatters_by_ft[vim.bo.filetype], ' ')
-            for formatter in formatters:gmatch('%w+') do
-              if formatter ~= 'format' then
-                table.insert(buf_client_names, formatter)
-              end
+          for formatter in formatters:gmatch('%w+') do
+            if formatter ~= 'format' then
+              table.insert(buf_client_names, formatter)
             end
+          end
         end
 
         local hash = {}

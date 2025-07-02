@@ -25,7 +25,6 @@ return {
         'html', -- HTML
         'ts_ls', -- TypeScript
         'jsonls', -- JSON
-        'ruff', -- Python [lint, format]
         'rust_analyzer', -- Rust
         'tailwindcss', -- Tailwind CSS
         'zls', -- Zig

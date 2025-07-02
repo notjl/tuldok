@@ -2,6 +2,7 @@ return {
   'stevearc/conform.nvim',
   dependencies = {
     'zapling/mason-conform.nvim',
+    opts = {},
   },
   opts = {
     formatters = {
@@ -14,13 +15,20 @@ return {
           '--quote-style',
           'AutoPreferSingle',
         },
-      }
+      },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
-      py = { 'ruff' },
+      python = {
+        -- To fix auto-fixable lint errors.
+        'ruff_fix',
+        -- To run the Ruff formatter.
+        'ruff_format',
+        -- To organize the imports.
+        'ruff_organize_imports',
+      },
       go = { 'gofumpt', 'goimports-reviser', 'golines' },
-      js = { 'prettierd' },
+      javascript = { 'prettierd' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
       h = { 'clang-format' },
