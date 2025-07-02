@@ -18,11 +18,11 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
   },
-  {
-    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    event = 'LspAttach',
-    -- stylua: ignore
-    keys = { { '<LEADER>ll', function() require("lsp_lines").toggle() end, desc = 'Toggle LSP Lines' } },
-    opts = {},
-  },
+  -- {
+  --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+  --   event = 'LspAttach',
+  --   -- stylua: ignore
+  --   keys = { { '<LEADER>ll', function() require("lsp_lines").toggle() end, desc = 'Toggle LSP Lines' } },
+  --   opts = {},
+  -- },
 }

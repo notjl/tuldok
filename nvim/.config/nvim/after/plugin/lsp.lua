@@ -1,25 +1,42 @@
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('my.lsp', {}),
-  callback = function(args)
-    local ok, blink = pcall(require, 'blink.cmp')
-    if ok then
-      vim.lsp.config('*', {
-        capabilities = vim.tbl_deep_extend(
-          "force",
-          {},
-          vim.lsp.protocol.make_client_capabilities(),
-          blink.get_lsp_capabilities(),
-          {
-            fileOperations = {
-                didRename = true,
-                willRename = true,
-            },
-          }
-        ),
-      })
-    end
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   group = vim.api.nvim_create_augroup('LSP Config', {}),
+--   callback = function(args)
+--     local ok, blink = pcall(require, 'blink.cmp')
+--     if ok then
+--       vim.lsp.config('*', {
+--         capabilities = vim.tbl_deep_extend(
+--           "force",
+--           {},
+--           vim.lsp.protocol.make_client_capabilities(),
+--           blink.get_lsp_capabilities(),
+--           -- {
+--           --   fileOperations = {
+--           --       didRename = true,
+--           --       willRename = true,
+--           --   },
+--           -- }
+--         ),
+--       })
+--     end
+--   end,
+-- })
+local capabilities = vim.tbl_deep_extend(
+  'force',
+  {},
+  vim.lsp.protocol.make_client_capabilities()
+)
 
-  end,
+local ok, blink = pcall(require, 'blink.cmp')
+if ok then
+  capabilities = vim.tbl_deep_extend(
+    'force',
+    capabilities,
+    blink.get_lsp_capabilities()
+  )
+end
+
+vim.lsp.config('*', {
+  capabilities = capabilities
 })
 
 vim.diagnostic.config({
