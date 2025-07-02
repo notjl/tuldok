@@ -8,42 +8,40 @@ return {
       {
         'mason-org/mason.nvim',
         lazy = false,
-        opts = {}
+        opts = {},
       },
       { 'neovim/nvim-lspconfig' },
     },
     opts = {
       ensure_installed = {
         -- LSP
-        'angularls',        -- AngularJS
-        'basedpyright',     -- Python
-        'bashls',           -- Bash
-        'clangd',           -- C / C++
-        'dockerls',         -- Docker
-        'gopls',            -- Golang
-        'lua_ls',           -- Lua / NVIM
-        'html',             -- HTML
-        'ts_ls',            -- TypeScript
-        'jsonls',           -- JSON
-        'ruff',             -- Python [lint, format]
-        'rust_analyzer',    -- Rust
-        'tailwindcss',      -- Tailwind CSS
-        'zls',              -- Zig
+        'angularls', -- AngularJS
+        'basedpyright', -- Python
+        'bashls', -- Bash
+        'clangd', -- C / C++
+        'dockerls', -- Docker
+        'gopls', -- Golang
+        'lua_ls', -- Lua / NVIM
+        'html', -- HTML
+        'ts_ls', -- TypeScript
+        'jsonls', -- JSON
+        'ruff', -- Python [lint, format]
+        'rust_analyzer', -- Rust
+        'tailwindcss', -- Tailwind CSS
+        'zls', -- Zig
 
-        -- Formatting / conform.nvim
-        
         -- Linting / nvim-lint
-        
+
         -- DAP / nvim-dap
-      }
+      },
     },
   },
   {
-    "jinzhongjia/LspUI.nvim",
+    'jinzhongjia/LspUI.nvim',
     dependencies = {
       'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-      ft = { "markdown", "LspUI_hover" },
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+      ft = { 'markdown', 'LspUI_hover' },
       -- opts = { code = { style = 'language', highlight = 'none' } },
     },
     event = 'LspAttach',
@@ -60,11 +58,11 @@ return {
       { '<LEADER>li', '<CMD>LspUI implementation<CR>', desc = '[L]SP [i]mplementation' },
       { '<LEADER>lI', '<CMD>LspUI inlay_hint<CR>', desc = '[L]SP [I]nlay Hint' },
     },
-    branch = "main",
+    branch = 'main',
     opts = {},
   },
   {
     'RRethy/vim-illuminate',
-    event = 'LspAttach'
+    event = 'LspAttach',
   },
 }
