@@ -1,8 +1,17 @@
+vim.api.nvim_create_autocmd("VimLeave", {
+    pattern = "*",
+    command = "silent !zellij action switch-mode normal"
+})
+
 return {
-  "https://github.com/fresh2dev/zellij.vim.git",
-  lazy = false,
-  init = function()
-    vim.g.zelli_navigator_move_focus_or_tab = 1
-    vim.g.zellij_navigator_disable_autolock = 1
-  end,
+  "swaits/zellij-nav.nvim",
+  lazy = true,
+  event = "VeryLazy",
+  keys = {
+    { "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>",  { silent = true, desc = "navigate left or tab"  } },
+    { "<c-j>", "<cmd>ZellijNavigateDown<cr>",  { silent = true, desc = "navigate down"  } },
+    { "<c-k>", "<cmd>ZellijNavigateUp<cr>",    { silent = true, desc = "navigate up"    } },
+    { "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { silent = true, desc = "navigate right or tab" } },
+  },
+  opts = {},
 }
