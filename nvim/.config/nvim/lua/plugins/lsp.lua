@@ -37,12 +37,6 @@ return {
   },
   {
     'jinzhongjia/LspUI.nvim',
-    dependencies = {
-      'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-      ft = { 'markdown', 'LspUI_hover' },
-      -- opts = { code = { style = 'language', highlight = 'none' } },
-    },
     event = 'LspAttach',
     keys = {
       { '<LEADER>lh', '<CMD>LspUI hover<CR>', desc = '[L]SP Show [h]over Doc' },

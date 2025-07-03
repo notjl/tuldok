@@ -18,7 +18,8 @@ local keybindings = {
     ['<LEADER>w'] = '<CMD>w<CR>',
 
     -- Remap Quit --
-    ['<LEADER>q'] = '<CMD>q<CR>', -- Quit single buffer
+    ['<LEADER>q'] = '<CMD>bd<CR>', -- Quit single buffer
+    ['<LEADER>Q'] = '<CMD>q<CR>', -- Quit buffer with warning
     ['<LEADER>Qa'] = '<CMD>qa<CR>', -- Quit all buffers
 
     -- Do Not Yank with "x" --
